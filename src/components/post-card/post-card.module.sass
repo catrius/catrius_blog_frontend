@@ -1,0 +1,73 @@
+@import 'styles/variables'
+
+.post-card
+  width: 330px
+  transition: 0.4s
+  cursor: pointer
+  background-color: $titan-white
+  display: inline-block
+  margin: 0 15px 60px 15px
+
+  &:hover
+    box-shadow: 0 20px 30px $prussian-blue-10
+    background: white
+
+    .thumbnail
+      &::before
+        left: -130%
+
+  .thumbnail
+    width: 100%
+    transition: 0.5s
+    position: relative
+    overflow: hidden
+
+    &::before
+      position: absolute
+      content: ''
+      background: $white-40
+      z-index: 999
+      left: 110%
+      top: 0
+      height: 100%
+      width: 130%
+      transition: 0.5s
+      box-sizing: border-box
+
+  .thumbnail-image
+    width: 100%
+
+  .detail
+    width: 100%
+    padding: 40px
+    box-sizing: border-box
+    color: $storm-gray
+
+  .title
+    color: $haiti
+    font-size: 18px
+    line-height: 27px
+    font-family: $play-fair
+
+  .date
+    margin: 15px 0 10px 0
+    font-size: 13px
+
+    .calendar-icon
+      margin-right: 10px
+
+  .footer
+    margin-top: 20px
+
+    .read-more
+      font-weight: 600
+      color: $haiti
+
+    .right-arrow-icon
+      margin-left: 10px
+
+    .category
+      float: right
+
+    .category-icon
+      margin-right: 10px
