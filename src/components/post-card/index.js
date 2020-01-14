@@ -15,7 +15,7 @@ function PostCard(props) {
         <div className={ styles['date'] }>
           <i className={ cx('far fa-calendar-alt', styles['calendar-icon']) }/>{ date }
         </div>
-        <div className={ styles['excerpt'] }>{ excerpt }</div>
+        <div>{ excerpt }</div>
         <div className={ styles['footer'] }>
           <span className={ styles['read-more'] }>
             Read more<i className={ cx('fas fa-arrow-right', styles['right-arrow-icon']) }/>
