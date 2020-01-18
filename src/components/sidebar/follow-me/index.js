@@ -9,6 +9,7 @@ function FollowMe() {
     <Section title='Follow Me'>
       <div className={ styles['social-icons'] }>
         <a href='/' className={ styles['social-icon'] }><i className='fab fa-facebook-f'/></a>
+        <a href='/' className={ styles['social-icon'] }><i className='fab fa-github'/></a>
       </div>
     </Section>
   );

@@ -5,7 +5,7 @@ import Categories from 'components/sidebar/categories';
 import Search from 'components/sidebar/search';
 import Newsletter from 'components/sidebar/newsletter';
 import AboutMe from 'components/sidebar/about-me';
-import FollowMe from 'components/sidebar/Follow me';
+import FollowMe from 'components/sidebar/follow-me';
 
 
 function Sidebar() {

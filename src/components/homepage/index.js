@@ -5,6 +5,7 @@ import Header from 'components/header';
 import PostCard from 'components/homepage/post-card';
 import { publicUrl } from 'utils/common';
 import Sidebar from 'components/sidebar';
+import Footer from 'components/footer';
 
 
 function Homepage() {
@@ -35,6 +36,7 @@ function Homepage() {
         </div>
       <Sidebar />
       </div>
+      <Footer/>
     </div>
   );
 }
