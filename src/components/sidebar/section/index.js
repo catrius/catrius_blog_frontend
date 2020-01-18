@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 
 import styles from './section.module.sass';
 
 
 function Section(props) {
-  const { title, children } = props;
+  const { title, children, className } = props;
   return (
-    <div className={ styles['section'] }>
+    <div className={ cx(styles['section'], className ) }>
       { title && <div className={ styles['title'] }>{ title }</div> }
       { children }
     </div>
