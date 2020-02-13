@@ -8,7 +8,7 @@ function App() {
     <div className={ styles['App'] }>
       <Homepage/>
     </div>
-  )
+  );
 }
 
 export default App;

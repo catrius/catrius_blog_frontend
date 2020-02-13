@@ -18,6 +18,7 @@ function Section(props) {
 Section.propTypes = {
   title: PropTypes.string,
   children: PropTypes.element,
+  className: PropTypes.string,
 };
 
 export default Section;
