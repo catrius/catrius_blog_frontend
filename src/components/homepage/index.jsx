@@ -15,18 +15,6 @@ export default class Homepage extends Component {
     fetchAllPosts();
   }
 
-  renderPostCard() {
-    return (
-      <PostCard
-        thumbnailUrl={ publicUrl('assets/blog-post/blog-post1.jpg') }
-        title='There is going to be a musical about meghan'
-        date='20th Nov, 2018'
-        excerpt='Creepy green light appear let rule only you are divide and lights moving and is not given creeping deep.'
-        category='Travel'
-      />
-    );
-  }
-
   render() {
     const { allPosts } = this.props;
     return (
@@ -37,11 +25,11 @@ export default class Homepage extends Component {
             {
               allPosts.map(post => (
                 <PostCard
-                  key={ post.id }
+                  key={ post.pk }
                   thumbnailUrl={ publicUrl('assets/blog-post/blog-post1.jpg') }
                   title={ post.title }
-                  date={ post.created }
-                  excerpt={ post.exceprt }
+                  date={ post.date }
+                  excerpt={ post.excerpt }
                   category={ post.category }
                 />
               ))
@@ -58,7 +46,7 @@ export default class Homepage extends Component {
 Homepage.propTypes = {
   fetchAllPosts: func,
   allPosts: arrayOf(shape({
-    id: number,
+    pk: number,
     title: string,
     date: string,
     excerpt: string,
