@@ -1,0 +1,46 @@
+---
+extends:
+  - react-app
+  - eslint:recommended
+  - plugin:jsx-a11y/recommended
+  - plugin:react/recommended
+  - plugin:import/errors
+  - plugin:import/warnings
+
+plugins:
+  - jsx-a11y
+  - react
+  - import
+
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+
+settings:
+  import/resolver:
+    webpack:
+    node:
+      extensions:
+        - .js
+        - .jsx
+      moduleDirectory:
+        - src
+
+rules:
+  max-len:
+    - error
+    - code: 120
+  semi: error
+  comma-dangle:
+    - error
+    - always-multiline
+  comma-spacing:
+    - error
+    - before: false
+      after: true
+  import/newline-after-import:
+    - error
+    - count: 2
+  import/order:
+    - error
+    - newlines-between: always

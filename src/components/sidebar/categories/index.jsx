@@ -2,6 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 
 import styles from './categories.module.sass';
+
 import Section from 'components/sidebar/section';
 
 

@@ -2,6 +2,7 @@ import { get } from 'lodash';
 import moment from 'moment';
 import { createSelector } from '@reduxjs/toolkit';
 
+
 const getAllPosts = state => get(state, 'homepage.allPosts');
 
 const transformPost = post => ({

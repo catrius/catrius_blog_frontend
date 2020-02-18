@@ -2,6 +2,7 @@ import React from 'react';
 
 import styles from './footer.module.sass';
 
+
 function Footer() {
   const heart = <i className='fas fa-heart' />;
   const colorlib = (

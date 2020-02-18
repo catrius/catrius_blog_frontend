@@ -3,9 +3,11 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 
 import 'index.sass';
+import * as serviceWorker from './serviceWorker';
+
 import App from 'App';
 import store from 'store';
-import * as serviceWorker from './serviceWorker';
+
 
 render(
   <Provider store={ store }>

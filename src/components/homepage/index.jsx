@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { arrayOf, func, number, shape, string } from 'prop-types';
 
 import styles from './homepage.module.sass';
+
 import Header from 'components/header';
 import PostCard from 'components/homepage/post-card';
 import { publicUrl } from 'utils/common';

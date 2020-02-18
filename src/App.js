@@ -1,7 +1,9 @@
 import React from 'react';
 
-import HomePageContainer from 'containers/homepage';
 import styles from './App.sass';
+
+import HomePageContainer from 'containers/homepage';
+
 
 function App() {
   return (

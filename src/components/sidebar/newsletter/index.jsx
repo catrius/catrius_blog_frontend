@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styles from './newsletter.module.sass';
+
 import Section from 'components/sidebar/section';
 
 

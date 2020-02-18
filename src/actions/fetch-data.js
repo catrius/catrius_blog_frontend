@@ -2,6 +2,7 @@ import { createAction } from '@reduxjs/toolkit';
 
 import { ALL_POSTS_URL, FETCH_ALL_POSTS } from 'utils/constants';
 
+
 export const fetchAllPosts = createAction(
   FETCH_ALL_POSTS,
   () => ({

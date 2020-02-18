@@ -4,6 +4,7 @@ import cx from 'classnames';
 
 import styles from './post-card.module.sass';
 
+
 function PostCard(props) {
   const { thumbnailUrl, title, date, excerpt, category } = props;
   return (

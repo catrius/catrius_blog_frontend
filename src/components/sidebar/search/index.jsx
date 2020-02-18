@@ -1,6 +1,7 @@
 import React from 'react';
 
 import styles from './search.module.sass';
+
 import Section from 'components/sidebar/section';
 
 
