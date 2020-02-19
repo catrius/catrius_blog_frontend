@@ -30,7 +30,8 @@ rules:
   max-len:
     - error
     - code: 120
-  semi: error
+  semi:
+    - error
   comma-dangle:
     - error
     - always-multiline

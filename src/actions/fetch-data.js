@@ -1,16 +1,6 @@
-import { createAction } from '@reduxjs/toolkit';
+import { POSTS_URL, FETCH_ALL_POSTS, FETCH_SINGLE_POST } from 'utils/constants';
+import { get } from 'actions/axios-requests';
 
-import { ALL_POSTS_URL, FETCH_ALL_POSTS } from 'utils/constants';
 
-
-export const fetchAllPosts = createAction(
-  FETCH_ALL_POSTS,
-  () => ({
-    payload: {
-      request: {
-        method: 'get',
-        url: ALL_POSTS_URL,
-      },
-    },
-  }),
-);
+export const fetchAllPosts = get(FETCH_ALL_POSTS, POSTS_URL);
+export const fetchSinglePost = postPK => get(FETCH_SINGLE_POST, `${POSTS_URL}${postPK}/`);

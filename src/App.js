@@ -5,10 +5,12 @@ import { ConnectedRouter } from 'connected-react-router';
 
 import styles from 'App.module.sass';
 import HomePageContainer from 'containers/homepage';
+import SinglePostPageContainer from 'containers/single-post-page';
 import store, { history } from 'store';
 import Header from 'components/header';
 import Footer from 'components/footer';
 import Sidebar from 'components/sidebar';
+import { SINGLE_POST_ROUTER } from 'utils/constants';
 
 
 function App() {
@@ -21,6 +23,9 @@ function App() {
             <Switch>
               <Route exact path='/'>
                 <HomePageContainer/>
+              </Route>
+              <Route path={ SINGLE_POST_ROUTER }>
+                <SinglePostPageContainer/>
               </Route>
             </Switch>
             <Sidebar/>
