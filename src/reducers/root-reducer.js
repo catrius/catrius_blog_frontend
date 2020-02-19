@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
+import { connectRouter } from 'connected-react-router';
 
 import homepage from './homepage';
 
 
-const rootReducer = combineReducers({
+const rootReducer = history => combineReducers({
+  router: connectRouter(history),
   homepage,
 });
 

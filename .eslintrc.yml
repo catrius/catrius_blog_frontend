@@ -38,6 +38,10 @@ rules:
     - error
     - before: false
       after: true
+  quotes:
+    - error
+    - single
+    - avoidEscape: true
   import/newline-after-import:
     - error
     - count: 2

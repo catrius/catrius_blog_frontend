@@ -3,11 +3,8 @@ import { arrayOf, func, number, shape, string } from 'prop-types';
 
 import styles from './homepage.module.sass';
 
-import Header from 'components/header';
 import PostCard from 'components/homepage/post-card';
 import { publicUrl } from 'utils/common';
-import Sidebar from 'components/sidebar';
-import Footer from 'components/footer';
 
 
 export default class Homepage extends Component {
@@ -20,25 +17,20 @@ export default class Homepage extends Component {
     const { allPosts } = this.props;
     return (
       <div className={ styles['homepage'] }>
-        <Header/>
-        <div className={ styles['content'] }>
-          <div className={ styles['posts'] }>
-            {
-              allPosts.map(post => (
-                <PostCard
-                  key={ post.pk }
-                  thumbnailUrl={ publicUrl('assets/blog-post/blog-post1.jpg') }
-                  title={ post.title }
-                  date={ post.date }
-                  excerpt={ post.excerpt }
-                  category={ post.category }
-                />
-              ))
-            }
-          </div>
-          <Sidebar/>
+        <div className={ styles['posts'] }>
+          {
+            allPosts.map(post => (
+              <PostCard
+                key={ post.pk }
+                thumbnailUrl={ publicUrl('assets/blog-post/blog-post1.jpg') }
+                title={ post.title }
+                date={ post.date }
+                excerpt={ post.excerpt }
+                category={ post.category }
+              />
+            ))
+          }
         </div>
-        <Footer/>
       </div>
     );
   }
