@@ -1,6 +1,48 @@
+@import 'styles/variables'
+
 .single-post-page
   width: 100%
   flex: 0 0 66%
+  padding: 0 15px
+  box-sizing: border-box
 
-  .posts
+  .title
+    font-size: 36px
+    font-weight: 500
+    color: $haiti
+    margin: 30px 0
+
+  .meta
+    display: flex
+    justify-content: space-between
+    align-items: center
+    margin-bottom: 30px
+
+  .category
     display: inline-block
+    border: 1px solid #eeeeee
+    text-align: center
+    padding: 0 20px
+    font-size: 12px
+    color: $white-blue-yonder
+    font-family: $open-sans
+    font-weight: 500
+    line-height: 28px
+    background: $titan-white
+    margin-right: 10px
+    text-transform: uppercase
+
+    &:hover
+      background: $haiti
+      color: white
+
+  .date
+    display: inline-block
+    float: right
+    font-size: 12px
+    color: $white-blue-yonder
+    text-transform: uppercase
+
+  .content
+    white-space: pre-line
+    text-align: justify

@@ -22,6 +22,7 @@ export default class Homepage extends Component {
             allPosts.map(post => (
               <PostCard
                 key={ post.pk }
+                pk={ post.pk }
                 thumbnailUrl={ publicUrl('assets/blog-post/blog-post1.jpg') }
                 title={ post.title }
                 date={ post.date }

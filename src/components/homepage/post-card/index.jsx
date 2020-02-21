@@ -5,11 +5,13 @@ import { Link } from 'react-router-dom';
 
 import styles from './post-card.module.sass';
 
+import { singlePostUrl } from 'utils/urls';
+
 
 function PostCard(props) {
-  const { thumbnailUrl, title, date, excerpt, category } = props;
+  const { pk, thumbnailUrl, title, date, excerpt, category } = props;
   return (
-    <div className={ styles['post-card'] }>
+    <Link to={ singlePostUrl(pk) } className={ styles['post-card'] }>
       <div className={ styles['thumbnail'] }>
         <img className={ styles['thumbnail-image'] } src={ thumbnailUrl } alt=''/>
       </div>
@@ -28,11 +30,12 @@ function PostCard(props) {
           </span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
 PostCard.propTypes = {
+  pk: number,
   thumbnailUrl: string,
   title: string,
   date: string,
