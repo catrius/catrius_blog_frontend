@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { func, number, shape, string } from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import styles from './single-post-page.module.sass';
 

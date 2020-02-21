@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { string } from 'prop-types';
 
 import Section from 'components/sidebar/section';
 
@@ -14,7 +14,7 @@ function AboutMe(props) {
 }
 
 AboutMe.propTypes = {
-  content: PropTypes.string,
+  content: string,
 };
 
 export default AboutMe;

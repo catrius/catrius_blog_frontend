@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 import { fetchSinglePost } from 'actions/fetch-data';
 import { getPK, postSelector } from 'selectors/single-post-page';

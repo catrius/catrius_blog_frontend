@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { string, element } from 'prop-types';
 import cx from 'classnames';
 
 import styles from './section.module.sass';
@@ -16,9 +16,9 @@ function Section(props) {
 }
 
 Section.propTypes = {
-  title: PropTypes.string,
-  children: PropTypes.element,
-  className: PropTypes.string,
+  title: string,
+  children: element,
+  className: string,
 };
 
 export default Section;

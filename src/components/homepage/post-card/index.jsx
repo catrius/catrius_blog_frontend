@@ -1,6 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { number, string } from 'prop-types';
 import cx from 'classnames';
+import { Link } from 'react-router-dom';
 
 import styles from './post-card.module.sass';
 
@@ -32,11 +33,11 @@ function PostCard(props) {
 }
 
 PostCard.propTypes = {
-  thumbnailUrl: PropTypes.string,
-  title: PropTypes.string,
-  date: PropTypes.string,
-  excerpt: PropTypes.string,
-  category: PropTypes.string,
+  thumbnailUrl: string,
+  title: string,
+  date: string,
+  excerpt: string,
+  category: string,
 };
 
 export default PostCard;
