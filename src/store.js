@@ -1,7 +1,7 @@
-import { createBrowserHistory } from 'history';
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
-import axiosMiddleware from 'redux-axios-middleware';
 import axios from 'axios';
+import { createBrowserHistory } from 'history';
+import axiosMiddleware from 'redux-axios-middleware';
 
 import rootReducer from 'reducers/root-reducer';
 import { BASE_API_URL } from 'utils/constants';

@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
+import { combineReducers } from 'redux';
 
-import { FETCH_ALL_POSTS } from 'utils/constants';
 import { successfully } from 'utils/common';
+import { FETCH_ALL_POSTS } from 'utils/constants';
 
 
 const allPosts = createReducer([], {

@@ -1,24 +1,46 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { arrayOf, bool, func, number, shape, string } from 'prop-types';
 
-import styles from 'components/sidebar/sidebar.module.sass';
-import Categories from 'components/sidebar/categories';
-import Search from 'components/sidebar/search';
-import Newsletter from 'components/sidebar/newsletter';
 import AboutMe from 'components/sidebar/about-me';
+import Categories from 'components/sidebar/categories';
 import FollowMe from 'components/sidebar/follow-me';
+import Newsletter from 'components/sidebar/newsletter';
+import Search from 'components/sidebar/search';
+import styles from 'components/sidebar/sidebar.module.sass';
 
 
-function Sidebar() {
-  const aboutMeContent = "Hi! I'm Thang Pham, a senior full stack web developer. My majors are Python, Django and React.";
-  return (
-    <div className={ styles['sidebar'] }>
-      <AboutMe content={ aboutMeContent }/>
-      <Search/>
-      <Categories/>
-      <Newsletter/>
-      <FollowMe/>
-    </div>
-  );
+export default class Sidebar extends Component {
+  componentDidMount() {
+    const { fetchAllCategories, fetchedAllCategories } = this.props;
+    !fetchedAllCategories && fetchAllCategories();
+  }
+
+  render() {
+    const { allCategories } = this.props;
+    const aboutMeContent = (
+      "Hi! I'm Thang Pham, a senior full stack web developer. My majors are Python, Django and React."
+    );
+
+    return (
+      <div className={ styles['sidebar'] }>
+        <AboutMe content={ aboutMeContent }/>
+        <Search/>
+        <Categories categories={ allCategories }/>
+        <Newsletter/>
+        <FollowMe/>
+      </div>
+    );
+  }
 }
 
-export default Sidebar;
+Sidebar.propTypes = {
+  fetchAllCategories: func,
+  fetchedAllCategories: bool,
+  allCategories: arrayOf(shape({
+    pk: number,
+    name: string,
+    description: string,
+    postCount: number,
+    url: string,
+  })),
+};

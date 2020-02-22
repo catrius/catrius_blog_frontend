@@ -1,5 +1,5 @@
-import { get } from 'lodash';
 import { createSelector } from '@reduxjs/toolkit';
+import { get } from 'lodash';
 
 import { transformPost } from 'selectors/transfomers';
 

@@ -43,6 +43,11 @@ rules:
     - error
     - single
     - avoidEscape: true
+  camelcase:
+    - error
+  object-curly-spacing:
+    - error
+    - always
   import/newline-after-import:
     - error
     - count: 2
@@ -51,3 +56,7 @@ rules:
     - newlines-between: always
   import/named:
     - off
+  react/jsx-curly-spacing:
+    - error
+    - when: always
+      children: true

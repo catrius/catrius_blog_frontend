@@ -1,6 +1,6 @@
 import React from 'react';
-import { string, element } from 'prop-types';
 import cx from 'classnames';
+import { string, element } from 'prop-types';
 
 import styles from './section.module.sass';
 

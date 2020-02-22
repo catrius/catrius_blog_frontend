@@ -1,5 +1,5 @@
-import { get, isEmpty } from 'lodash';
 import { createSelector } from '@reduxjs/toolkit';
+import { get, isEmpty, map } from 'lodash';
 
 import { transformPost } from 'selectors/transfomers';
 
@@ -9,7 +9,7 @@ const getAllPosts = state => get(state, 'homepage.allPosts');
 
 export const allPostsSelector = createSelector(
   getAllPosts,
-  posts => posts.map(transformPost),
+  posts => map(posts, transformPost),
 );
 
 export const fetchedAllPostsSelector = createSelector(

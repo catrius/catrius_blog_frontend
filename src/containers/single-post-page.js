@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import { fetchSinglePost } from 'actions/fetch-data';
-import { getPK, postSelector } from 'selectors/single-post-page';
 import SinglePostPage from 'components/single-post-page';
+import { getPK, postSelector } from 'selectors/single-post-page';
 
 
 const mapStateToProps = (state, ownProps) => ({

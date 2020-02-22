@@ -1,17 +1,15 @@
 import React from 'react';
-import { number, string } from 'prop-types';
 import cx from 'classnames';
+import { number, string } from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import styles from './post-card.module.sass';
 
-import { singlePostUrl } from 'utils/urls';
-
 
 function PostCard(props) {
-  const { pk, thumbnailUrl, title, date, excerpt, category } = props;
+  const { thumbnailUrl, title, date, excerpt, category, url } = props;
   return (
-    <Link to={ singlePostUrl(pk) } className={ styles['post-card'] }>
+    <Link to={ url } className={ styles['post-card'] }>
       <div className={ styles['thumbnail'] }>
         <img className={ styles['thumbnail-image'] } src={ thumbnailUrl } alt=''/>
       </div>
@@ -41,6 +39,7 @@ PostCard.propTypes = {
   date: string,
   excerpt: string,
   category: string,
+  url: string,
 };
 
 export default PostCard;

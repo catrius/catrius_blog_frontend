@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { arrayOf, func, number, shape, string, bool } from 'prop-types';
+import { map } from 'lodash';
 
 import styles from './homepage.module.sass';
 
@@ -19,7 +20,7 @@ export default class Homepage extends Component {
       <div className={ styles['homepage'] }>
         <div className={ styles['posts'] }>
           {
-            allPosts.map(post => (
+            map(allPosts, post => (
               <PostCard
                 key={ post.pk }
                 pk={ post.pk }
@@ -46,5 +47,6 @@ Homepage.propTypes = {
     date: string,
     excerpt: string,
     category: string,
+    url: string,
   })),
 };
