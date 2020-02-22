@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { arrayOf, func, number, shape, string } from 'prop-types';
+import { arrayOf, func, number, shape, string, bool } from 'prop-types';
 
 import styles from './homepage.module.sass';
 
@@ -9,8 +9,8 @@ import { publicUrl } from 'utils/common';
 
 export default class Homepage extends Component {
   componentDidMount() {
-    const { fetchAllPosts } = this.props;
-    fetchAllPosts();
+    const { fetchAllPosts, fetchedAllPosts } = this.props;
+    !fetchedAllPosts && fetchAllPosts();
   }
 
   render() {
@@ -39,6 +39,7 @@ export default class Homepage extends Component {
 
 Homepage.propTypes = {
   fetchAllPosts: func,
+  fetchedAllPosts: bool,
   allPosts: arrayOf(shape({
     pk: number,
     title: string,
