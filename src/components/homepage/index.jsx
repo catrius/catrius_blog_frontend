@@ -29,6 +29,7 @@ export default class Homepage extends Component {
                 date={ post.date }
                 excerpt={ post.excerpt }
                 category={ post.category }
+                url={ post.url }
               />
             ))
           }

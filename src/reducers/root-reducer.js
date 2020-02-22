@@ -1,15 +1,15 @@
 import { connectRouter } from 'connected-react-router';
 import { combineReducers } from 'redux';
 
-import homepage from './homepage';
-import singlePostPage from './single-post-page';
-import sidebar from './sidebar';
+import homepage from 'reducers/homepage';
+import sidebar from 'reducers/sidebar';
+import postPage from 'reducers/post-page';
 
 
 const rootReducer = history => combineReducers({
   router: connectRouter(history),
   homepage,
-  singlePostPage,
+  postPage,
   sidebar,
 });
 

@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-import { categoryUrl, singlePostUrl } from 'utils/urls';
+import { categoryUrl, postUrl } from 'utils/urls';
 
 
 export const transformPost = post => ({
@@ -10,7 +10,7 @@ export const transformPost = post => ({
   excerpt: post.excerpt,
   content: post.content,
   category: post.category,
-  url: singlePostUrl(post.pk),
+  url: postUrl(post.pk),
 });
 
 export const transformCategory = post => ({

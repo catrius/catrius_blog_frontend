@@ -2,20 +2,20 @@ import React, { Component } from 'react';
 import { func, number, shape, string } from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import styles from './single-post-page.module.sass';
+import styles from 'components/post-page/post-page.module.sass';
 
 
-export default class SinglePostPage extends Component {
+export default class PostPage extends Component {
   componentDidMount() {
-    const { fetchSinglePost, pk } = this.props;
-    fetchSinglePost(pk);
+    const { fetchPost, pk } = this.props;
+    fetchPost(pk);
   }
 
   render() {
     const { post } = this.props;
     const { title, date, category, content } = post;
     return (
-      <div className={ styles['single-post-page'] }>
+      <div className={ styles['post-page'] }>
         <h4 className={ styles['title'] }>{ title }</h4>
         <div className={ styles['meta'] }>
           <Link to='#' className={ styles['category'] }>{ category }</Link>
@@ -27,9 +27,9 @@ export default class SinglePostPage extends Component {
   }
 }
 
-SinglePostPage.propTypes = {
+PostPage.propTypes = {
   pk: number,
-  fetchSinglePost: func,
+  fetchPost: func,
   post: shape({
     pk: number,
     title: string,
