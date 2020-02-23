@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { arrayOf, bool, func, number, shape, string } from 'prop-types';
+import { arrayOf, bool, func, shape } from 'prop-types';
 
 import AboutMe from 'components/sidebar/about-me';
 import Categories from 'components/sidebar/categories';
@@ -7,6 +7,7 @@ import FollowMe from 'components/sidebar/follow-me';
 import Newsletter from 'components/sidebar/newsletter';
 import Search from 'components/sidebar/search';
 import styles from 'components/sidebar/sidebar.module.sass';
+import { CATEGORY_SHAPE } from 'utils/constants';
 
 
 export default class Sidebar extends Component {
@@ -36,11 +37,5 @@ export default class Sidebar extends Component {
 Sidebar.propTypes = {
   fetchAllCategories: func,
   fetchedAllCategories: bool,
-  allCategories: arrayOf(shape({
-    pk: number,
-    name: string,
-    description: string,
-    postCount: number,
-    url: string,
-  })),
+  allCategories: arrayOf(shape(CATEGORY_SHAPE)),
 };

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { arrayOf, func, number, shape, string, bool } from 'prop-types';
+import { arrayOf, bool, func, shape } from 'prop-types';
 import { map } from 'lodash';
 
 import styles from './homepage.module.sass';
 
 import PostCard from 'components/homepage/post-card';
-import { publicUrl } from 'utils/common';
+import { POST_SHAPE } from 'utils/constants';
 
 
 export default class Homepage extends Component {
@@ -24,7 +24,6 @@ export default class Homepage extends Component {
               <PostCard
                 key={ post.pk }
                 pk={ post.pk }
-                thumbnailUrl={ publicUrl('assets/blog-post/blog-post1.jpg') }
                 title={ post.title }
                 date={ post.date }
                 excerpt={ post.excerpt }
@@ -42,12 +41,5 @@ export default class Homepage extends Component {
 Homepage.propTypes = {
   fetchAllPosts: func,
   fetchedAllPosts: bool,
-  allPosts: arrayOf(shape({
-    pk: number,
-    title: string,
-    date: string,
-    excerpt: string,
-    category: string,
-    url: string,
-  })),
+  allPosts: arrayOf(shape(POST_SHAPE)),
 };

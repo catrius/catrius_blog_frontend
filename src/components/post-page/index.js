@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
-import { func, number, shape, string } from 'prop-types';
+import { func, number, shape } from 'prop-types';
 import { Link } from 'react-router-dom';
+import { isNil } from 'lodash';
 
-import styles from 'components/post-page/post-page.module.sass';
+import styles from './post-page.module.sass';
+
+import { POST_SHAPE } from 'utils/constants';
 
 
 export default class PostPage extends Component {
   componentDidMount() {
     const { fetchPost, pk } = this.props;
     fetchPost(pk);
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    const { fetchPost, pk } = this.props;
+    if (!isNil(pk) && pk !== prevProps.pk) {
+      fetchPost(pk);
+    }
   }
 
   render() {
@@ -18,7 +28,7 @@ export default class PostPage extends Component {
       <div className={ styles['post-page'] }>
         <h4 className={ styles['title'] }>{ title }</h4>
         <div className={ styles['meta'] }>
-          <Link to='#' className={ styles['category'] }>{ category }</Link>
+          <Link to={ category.url } className={ styles['category'] }>{ category.name }</Link>
           <span className={ styles['date'] }>{ date }</span>
         </div>
         <div className={ styles['content'] }>{ content }</div>
@@ -30,11 +40,5 @@ export default class PostPage extends Component {
 PostPage.propTypes = {
   pk: number,
   fetchPost: func,
-  post: shape({
-    pk: number,
-    title: string,
-    date: string,
-    excerpt: string,
-    category: string,
-  }),
+  post: shape(POST_SHAPE),
 };

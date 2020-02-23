@@ -3,7 +3,8 @@ import { withRouter } from 'react-router-dom';
 
 import { fetchPost } from 'actions/fetch-data';
 import PostPage from 'components/post-page';
-import { getPK, postSelector } from 'selectors/post-page';
+import { postSelector } from 'selectors/post-page';
+import { getPK } from 'selectors/router';
 
 
 const mapStateToProps = (state, ownProps) => ({

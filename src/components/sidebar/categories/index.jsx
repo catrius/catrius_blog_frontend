@@ -16,7 +16,7 @@ function Categories(props) {
       <ul className={ cx(styles['categories'], 'disable-list-style') }>
         {
           map(categories, category => (
-            <Link to={ category.url }>
+            <Link to={ category.url } key={ category.pk }>
               <li className={ styles['category'] }>
                 <span>{ category.name }</span><span>{ category.postCount }</span>
               </li>

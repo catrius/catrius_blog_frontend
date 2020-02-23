@@ -5,7 +5,6 @@ import { transformPost } from 'selectors/transfomers';
 
 
 const getPost = state => get(state, 'postPage.post');
-export const getPK = (state, props) => parseInt(get(props, 'match.params.pk', ''));
 
 export const postSelector = createSelector(
   getPost,
