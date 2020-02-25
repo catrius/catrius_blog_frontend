@@ -1,6 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 import { Link } from 'react-router-dom';
+import Dotdotdot from 'react-dotdotdot';
 
 import styles from './post-card.module.sass';
 
@@ -16,11 +17,15 @@ function PostCard(props) {
         <img className={ styles['thumbnail-image'] } src={ publicUrl('assets/blog-post/blog-post1.jpg') } alt=''/>
       </div>
       <div className={ styles['detail'] }>
-        <div className={ styles['title'] }>{ title }</div>
+        <div className={ styles['title'] }>
+          <Dotdotdot clamp={ 2 }>{ title }</Dotdotdot>
+        </div>
         <div className={ styles['date'] }>
           <i className={ cx('far fa-calendar-alt', styles['calendar-icon']) }/>{ date }
         </div>
-        <div>{ excerpt }</div>
+        <div className={ styles['content'] } >
+          <Dotdotdot clamp={ 6 }>{ excerpt }</Dotdotdot>
+        </div>
         <div className={ styles['footer'] }>
           <span className={ styles['read-more'] }>
             Read more<i className={ cx('fas fa-arrow-right', styles['right-arrow-icon']) }/>
