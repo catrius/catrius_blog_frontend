@@ -9,13 +9,8 @@ const posts = createReducer([], {
   [successfully(FETCH_POSTS)]: (state, action) => action.payload.data.results,
 });
 
-const postsCount = createReducer([], {
-  [successfully(FETCH_POSTS)]: (state, action) => action.payload.data.results,
-});
-
 const homepage = combineReducers({
   posts,
-  postsCount,
 });
 
 export default homepage;

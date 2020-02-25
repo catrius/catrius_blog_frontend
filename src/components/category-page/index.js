@@ -4,7 +4,7 @@ import { map, isNil } from 'lodash';
 
 import styles from './category-page.module.sass';
 
-import PostCard from 'components/homepage/post-card';
+import PostCard from 'components/common/post-card';
 import { CATEGORY_SHAPE } from 'utils/constants';
 
 

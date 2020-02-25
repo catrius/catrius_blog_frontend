@@ -5,6 +5,7 @@ import homepage from 'reducers/homepage';
 import sidebar from 'reducers/sidebar';
 import postPage from 'reducers/post-page';
 import categoryPage from 'reducers/category-page';
+import paginator from 'reducers/paginator';
 
 
 const rootReducer = history => combineReducers({
@@ -13,6 +14,7 @@ const rootReducer = history => combineReducers({
   postPage,
   sidebar,
   categoryPage,
+  paginator,
 });
 
 export default rootReducer;

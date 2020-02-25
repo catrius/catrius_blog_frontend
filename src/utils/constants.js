@@ -1,5 +1,5 @@
 // URLs
-import { number, shape, string } from 'prop-types';
+import { arrayOf, number, shape, string } from 'prop-types';
 
 
 export const BASE_API_URL = 'http://localhost:8000';
@@ -36,5 +36,5 @@ export const CATEGORY_SHAPE = {
   description: string,
   postCount: number,
   url: string,
-  posts: shape(POST_SHAPE),
+  posts: arrayOf(shape(POST_SHAPE)),
 };

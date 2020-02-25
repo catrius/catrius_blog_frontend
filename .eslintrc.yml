@@ -50,6 +50,10 @@ rules:
     - always
   keyword-spacing:
     - error
+  no-multiple-empty-lines:
+    - error
+    - max: 2
+      maxEOF: 0
   import/newline-after-import:
     - error
     - count: 2

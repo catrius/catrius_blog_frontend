@@ -13,7 +13,7 @@ export const transformPostCategory = category => ({
 export const transformPost = post => ({
   pk: get(post, 'pk'),
   title: get(post, 'title', ''),
-  date: moment(post, 'created').format('lll'),
+  date: moment(get(post, 'created')).format('lll'),
   excerpt: get(post, 'excerpt', ''),
   content: get(post, 'content', ''),
   category: transformPostCategory(get(post, 'category', {})),

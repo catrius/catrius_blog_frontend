@@ -3,8 +3,7 @@ import cx from 'classnames';
 import { Link } from 'react-router-dom';
 import Dotdotdot from 'react-dotdotdot';
 
-import styles from './post-card.module.sass';
-
+import styles from 'components/common/post-card/post-card.module.sass';
 import { publicUrl } from 'utils/common';
 import { POST_SHAPE } from 'utils/constants';
 
@@ -23,7 +22,7 @@ function PostCard(props) {
         <div className={ styles['date'] }>
           <i className={ cx('far fa-calendar-alt', styles['calendar-icon']) }/>{ date }
         </div>
-        <div className={ styles['content'] } >
+        <div className={ styles['content'] }>
           <Dotdotdot clamp={ 6 }>{ excerpt }</Dotdotdot>
         </div>
         <div className={ styles['footer'] }>

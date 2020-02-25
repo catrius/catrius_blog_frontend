@@ -1,0 +1,52 @@
+@import 'styles/variables'
+
+$link-size: 34px
+
+.paginator
+  display: inline-block
+  padding-left: 0
+  margin: 22px 15px
+  user-select: none
+  background-color: white
+
+  .page, .previous, .next, .break
+    display: inline-block
+    cursor: pointer
+    margin-left: -1px
+
+    .paginator-link
+      display: block
+      text-decoration: none
+      color: #2c689c
+      min-width: $link-size
+      height: $link-size
+      line-height: $link-size
+      text-align: center
+      box-sizing: border-box
+      border: 1px solid #ddd
+
+      &:hover
+        color: #1b4060
+        background-color: #eeeeee
+        border-color: #ddd
+
+  .previous, .next
+    .paginator-link
+      box-sizing: border-box
+
+  .next
+    .paginator-link
+      border: 1px solid #ddd
+
+  .active
+    .paginator-link
+      color: #fff
+      background-color: #2c689c
+      cursor: default
+      pointer-events: none
+      border-color: #2c689c
+
+  .disabled
+    .paginator-link
+      pointer-events: none
+      color: #777777

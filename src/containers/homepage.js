@@ -10,9 +10,9 @@ const mapStateToProps = (state, ownProps) => ({
   fetchedPosts: fetchedPostsSelector(state),
 });
 
-const mapDispatchToProps = {
-  fetchPosts,
-};
+const mapDispatchToProps = dispatch => ({
+  fetchPosts: params => dispatch(fetchPosts(params)()),
+});
 
 const HomePageContainer = connect(mapStateToProps, mapDispatchToProps)(Homepage);
 

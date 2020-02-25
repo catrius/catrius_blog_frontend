@@ -4,8 +4,9 @@ import { map } from 'lodash';
 
 import styles from './homepage.module.sass';
 
-import PostCard from 'components/homepage/post-card';
 import { POST_SHAPE } from 'utils/constants';
+import PostCard from 'components/common/post-card';
+import PaginatorContainer from 'containers/common/paginator';
 
 
 export default class Homepage extends Component {
@@ -15,9 +16,10 @@ export default class Homepage extends Component {
   }
 
   render() {
-    const { posts } = this.props;
+    const { posts, fetchPosts } = this.props;
     return (
       <div className={ styles['homepage'] }>
+        <PaginatorContainer fetch={ fetchPosts }/>
         <div className={ styles['posts'] }>
           {
             map(posts, post => (

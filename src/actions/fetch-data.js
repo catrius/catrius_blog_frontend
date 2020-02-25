@@ -9,7 +9,7 @@ import {
 } from 'utils/constants';
 
 
-export const fetchPosts = get(FETCH_POSTS, POSTS_URL);
+export const fetchPosts = params => get(FETCH_POSTS, POSTS_URL, params);
 export const fetchPost = pk => get(FETCH_POST, `${POSTS_URL}${pk}/`);
 export const fetchCategories = get(FETCH_CATEGORIES, CATEGORIES_URL);
 export const fetchCategory = pk => get(FETCH_CATEGORY, `${CATEGORIES_URL}${pk}/`);
