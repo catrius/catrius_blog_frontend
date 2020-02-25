@@ -12,12 +12,12 @@ import { CATEGORY_SHAPE } from 'utils/constants';
 
 export default class Sidebar extends Component {
   componentDidMount() {
-    const { fetchAllCategories, fetchedAllCategories } = this.props;
-    !fetchedAllCategories && fetchAllCategories();
+    const { fetchCategories, fetchedCategories } = this.props;
+    !fetchedCategories && fetchCategories();
   }
 
   render() {
-    const { allCategories } = this.props;
+    const { categories } = this.props;
     const aboutMeContent = (
       "Hi! I'm Thang Pham, a senior full stack web developer. My majors are Python, Django and React."
     );
@@ -26,7 +26,7 @@ export default class Sidebar extends Component {
       <div className={ styles['sidebar'] }>
         <AboutMe content={ aboutMeContent }/>
         <Search/>
-        <Categories categories={ allCategories }/>
+        <Categories categories={ categories }/>
         <Newsletter/>
         <FollowMe/>
       </div>
@@ -35,7 +35,7 @@ export default class Sidebar extends Component {
 }
 
 Sidebar.propTypes = {
-  fetchAllCategories: func,
-  fetchedAllCategories: bool,
-  allCategories: arrayOf(shape(CATEGORY_SHAPE)),
+  fetchCategories: func,
+  fetchedCategories: bool,
+  categories: arrayOf(shape(CATEGORY_SHAPE)),
 };

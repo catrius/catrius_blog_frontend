@@ -4,15 +4,15 @@ import { get, isEmpty, map } from 'lodash';
 import { transformPost } from 'selectors/transfomers';
 
 
-const getAllPosts = state => get(state, 'homepage.allPosts');
+const getPosts = state => get(state, 'homepage.posts');
 
 
-export const allPostsSelector = createSelector(
-  getAllPosts,
+export const postsSelector = createSelector(
+  getPosts,
   posts => map(posts, transformPost),
 );
 
-export const fetchedAllPostsSelector = createSelector(
-  getAllPosts,
+export const fetchedPostsSelector = createSelector(
+  getPosts,
   posts => !isEmpty(posts),
 );

@@ -10,17 +10,17 @@ import { POST_SHAPE } from 'utils/constants';
 
 export default class Homepage extends Component {
   componentDidMount() {
-    const { fetchAllPosts, fetchedAllPosts } = this.props;
-    !fetchedAllPosts && fetchAllPosts();
+    const { fetchPosts, fetchedPosts } = this.props;
+    !fetchedPosts && fetchPosts();
   }
 
   render() {
-    const { allPosts } = this.props;
+    const { posts } = this.props;
     return (
       <div className={ styles['homepage'] }>
         <div className={ styles['posts'] }>
           {
-            map(allPosts, post => (
+            map(posts, post => (
               <PostCard
                 key={ post.pk }
                 pk={ post.pk }
@@ -39,7 +39,7 @@ export default class Homepage extends Component {
 }
 
 Homepage.propTypes = {
-  fetchAllPosts: func,
-  fetchedAllPosts: bool,
-  allPosts: arrayOf(shape(POST_SHAPE)),
+  fetchPosts: func,
+  fetchedPosts: bool,
+  posts: arrayOf(shape(POST_SHAPE)),
 };

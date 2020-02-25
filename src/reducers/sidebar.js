@@ -2,15 +2,15 @@ import { createReducer } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 
 import { successfully } from 'utils/common';
-import { FETCH_ALL_CATEGORIES } from 'utils/constants';
+import { FETCH_CATEGORIES } from 'utils/constants';
 
 
-const allCategories = createReducer([], {
-  [successfully(FETCH_ALL_CATEGORIES)]: (state, action) => action.payload.data,
+const categories = createReducer([], {
+  [successfully(FETCH_CATEGORIES)]: (state, action) => action.payload.data.results,
 });
 
 const sidebar = combineReducers({
-  allCategories,
+  categories,
 });
 
 export default sidebar;

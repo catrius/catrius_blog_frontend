@@ -1,17 +1,17 @@
 import { connect } from 'react-redux';
 
-import { fetchAllPosts } from 'actions/fetch-data';
+import { fetchPosts } from 'actions/fetch-data';
 import Homepage from 'components/homepage';
-import { allPostsSelector, fetchedAllPostsSelector } from 'selectors/homepage';
+import { postsSelector, fetchedPostsSelector } from 'selectors/homepage';
 
 
 const mapStateToProps = (state, ownProps) => ({
-  allPosts: allPostsSelector(state),
-  fetchedAllPosts: fetchedAllPostsSelector(state),
+  posts: postsSelector(state),
+  fetchedPosts: fetchedPostsSelector(state),
 });
 
 const mapDispatchToProps = {
-  fetchAllPosts,
+  fetchPosts,
 };
 
 const HomePageContainer = connect(mapStateToProps, mapDispatchToProps)(Homepage);

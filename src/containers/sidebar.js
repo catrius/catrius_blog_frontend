@@ -1,17 +1,17 @@
 import { connect } from 'react-redux';
 
-import { fetchAllCategories } from 'actions/fetch-data';
+import { fetchCategories } from 'actions/fetch-data';
 import Sidebar from 'components/sidebar';
-import { allCategoriesSelector, fetchedAllCategoriesSelector } from 'selectors/sidebar';
+import { categoriesSelector, fetchedCategoriesSelector } from 'selectors/sidebar';
 
 
 const mapStateToProps = (state, ownProps) => ({
-  allCategories: allCategoriesSelector(state),
-  fetchedAllCategories: fetchedAllCategoriesSelector(state),
+  categories: categoriesSelector(state),
+  fetchedCategories: fetchedCategoriesSelector(state),
 });
 
 const mapDispatchToProps = {
-  fetchAllCategories,
+  fetchCategories,
 };
 
 const SideBarContainer = connect(mapStateToProps, mapDispatchToProps)(Sidebar);

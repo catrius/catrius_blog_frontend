@@ -4,15 +4,15 @@ import { get, isEmpty, map } from 'lodash';
 import { transformCategory } from 'selectors/transfomers';
 
 
-const getAllCategories = state => get(state, 'sidebar.allCategories');
+const getCategories = state => get(state, 'sidebar.categories');
 
 
-export const allCategoriesSelector = createSelector(
-  getAllCategories,
+export const categoriesSelector = createSelector(
+  getCategories,
   categories => map(categories, transformCategory),
 );
 
-export const fetchedAllCategoriesSelector = createSelector(
-  getAllCategories,
+export const fetchedCategoriesSelector = createSelector(
+  getCategories,
   categories => !isEmpty(categories),
 );
