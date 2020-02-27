@@ -1,19 +1,19 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import { fetchCategory } from 'actions/fetch-data';
+import { fetchPosts } from 'actions/fetch-data';
 import CategoryPage from 'components/category-page';
-import { categorySelector } from 'selectors/category-page';
+import { postsSelector } from 'selectors/posts';
 import { getPK } from 'selectors/router';
 
 
 const mapStateToProps = (state, ownProps) => ({
-  category: categorySelector(state),
+  posts: postsSelector(state),
   pk: getPK(state, ownProps),
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchCategory: pk => dispatch(fetchCategory(pk)()),
+  fetchPosts: params => dispatch(fetchPosts(params)()),
 });
 
 const CategoryPageContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(CategoryPage));

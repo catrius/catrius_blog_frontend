@@ -1,52 +1,38 @@
 import React, { Component } from 'react';
-import { func, number, shape } from 'prop-types';
-import { map, isNil } from 'lodash';
+import { arrayOf, func, number, shape } from 'prop-types';
+import { isNil } from 'lodash';
 
 import styles from './category-page.module.sass';
 
-import PostCard from 'components/common/post-card';
-import { CATEGORY_SHAPE } from 'utils/constants';
+import { POST_SHAPE } from 'utils/constants';
+import PostList from 'components/common/post-list';
 
 
 export default class CategoryPage extends Component {
   componentDidMount() {
-    const { fetchCategory, pk } = this.props;
-    fetchCategory(pk);
+    const { fetchPosts, pk } = this.props;
+    fetchPosts({ category: pk });
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    const { fetchCategory, pk } = this.props;
+    const { fetchPosts, pk } = this.props;
     if (!isNil(pk) && pk !== prevProps.pk) {
-      fetchCategory(pk);
+      fetchPosts({ category: pk });
     }
   }
 
   render() {
-    const { category } = this.props;
+    const { posts, fetchPosts, pk } = this.props;
     return (
       <div className={ styles['category-page'] }>
-        <div className={ styles['posts'] }>
-          {
-            map(category.posts, post => (
-              <PostCard
-                key={ post.pk }
-                pk={ post.pk }
-                title={ post.title }
-                date={ post.date }
-                excerpt={ post.excerpt }
-                category={ post.category }
-                url={ post.url }
-              />
-            ))
-          }
-        </div>
+       <PostList posts={ posts } fetchPosts={ fetchPosts } fetchParams={ { category: pk } }/>
       </div>
     );
   }
 }
 
 CategoryPage.propTypes = {
+  fetchPosts: func,
   pk: number,
-  fetchCategory: func,
-  category: shape(CATEGORY_SHAPE),
+  posts: arrayOf(shape(POST_SHAPE)),
 };

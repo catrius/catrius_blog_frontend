@@ -27,8 +27,3 @@ export const transformCategory = category => ({
   postCount: get(category, 'post_count', null),
   url: categoryUrl(get(category, 'pk', '')),
 });
-
-export const transformCategoryWithPosts = category => ({
-  ...transformCategory(category),
-  posts: map(get(category, 'posts', []), transformPost),
-});

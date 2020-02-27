@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
-import { func, number } from 'prop-types';
+import React from 'react';
+import { func, number, object } from 'prop-types';
 import ReactPaginate from 'react-paginate';
 
 import styles from './paginator.module.sass';
 
 
-export default class Paginator extends Component {
-  handlePageChange = data => {
-    const { fetch } = this.props;
-    fetch({ page: data.selected + 1 });
+export default function Paginator(props) {
+  const handlePageChange = data => {
+    const { fetch, fetchParams } = props;
+    fetch({ ...fetchParams, page: data.selected + 1 });
     window.scrollTo(0, 0);
   };
 
-  render() {
-    const { pageCount } = this.props;
-    return (
+  const { pageCount } = props;
+
+  return (
       <ReactPaginate
         pageCount={ pageCount }
-        onPageChange={ this.handlePageChange }
+        onPageChange={ handlePageChange }
         previousLabel='«'
         nextLabel='»'
         containerClassName={ styles['paginator'] }
@@ -33,11 +33,11 @@ export default class Paginator extends Component {
         breakLinkClassName={ styles['paginator-link'] }
       />
     );
-  }
 }
 
 Paginator.propTypes = {
   pageCount: number,
   onClick: func,
   fetch: func,
+  fetchParams: object,
 };

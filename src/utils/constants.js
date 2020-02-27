@@ -14,7 +14,6 @@ export const CATEGORY_ROUTER = '/category/:pk/';
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const FETCH_POST = 'FETCH_POST';
 export const FETCH_CATEGORIES = 'FETCH_CATEGORIES';
-export const FETCH_CATEGORY = 'FETCH_CATEGORY';
 
 // Shapes
 export const POST_SHAPE = {
