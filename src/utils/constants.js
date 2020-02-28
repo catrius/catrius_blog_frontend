@@ -21,6 +21,7 @@ export const POST_SHAPE = {
   title: string,
   date: string,
   excerpt: string,
+  thumbnail: string,
   url: string,
   category: shape({
     pk: number,

@@ -19,12 +19,7 @@ render() {
             map(posts, post => (
               <PostCard
                 key={ post.pk }
-                pk={ post.pk }
-                title={ post.title }
-                date={ post.date }
-                excerpt={ post.excerpt }
-                category={ post.category }
-                url={ post.url }
+                { ...post }
               />
             ))
           }

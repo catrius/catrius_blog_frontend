@@ -4,16 +4,15 @@ import { Link } from 'react-router-dom';
 import Dotdotdot from 'react-dotdotdot';
 
 import styles from 'components/common/post-card/post-card.module.sass';
-import { publicUrl } from 'utils/common';
 import { POST_SHAPE } from 'utils/constants';
 
 
 function PostCard(props) {
-  const { title, date, excerpt, category, url } = props;
+  const { title, date, excerpt, thumbnail, category, url } = props;
   return (
     <Link to={ url } className={ styles['post-card'] }>
       <div className={ styles['thumbnail'] }>
-        <img className={ styles['thumbnail-image'] } src={ publicUrl('assets/blog-post/blog-post1.jpg') } alt=''/>
+        <img className={ styles['thumbnail-image'] } src={ thumbnail } alt=''/>
       </div>
       <div className={ styles['detail'] }>
         <div className={ styles['title'] }>

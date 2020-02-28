@@ -1,7 +1,8 @@
 import moment from 'moment';
-import { map, get } from 'lodash';
+import { get } from 'lodash';
 
 import { categoryUrl, postUrl } from 'utils/urls';
+import { publicUrl } from 'utils/common';
 
 
 export const transformPostCategory = category => ({
@@ -16,6 +17,7 @@ export const transformPost = post => ({
   date: moment(get(post, 'created')).format('lll'),
   excerpt: get(post, 'excerpt', ''),
   content: get(post, 'content', ''),
+  thumbnail: get(post, 'thumbnail', publicUrl('assets/default-thumbnail.jpg')),
   category: transformPostCategory(get(post, 'category', {})),
   url: postUrl(get(post, 'pk')),
 });
