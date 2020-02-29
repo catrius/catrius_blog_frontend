@@ -1,7 +1,6 @@
-// URLs
 import { arrayOf, number, shape, string } from 'prop-types';
 
-
+// URLs
 export const BASE_API_URL = 'http://localhost:8000';
 export const POSTS_URL = '/blog/posts/';
 export const CATEGORIES_URL = '/blog/categories/';
@@ -38,3 +37,7 @@ export const CATEGORY_SHAPE = {
   url: string,
   posts: arrayOf(shape(POST_SHAPE)),
 };
+
+// Social media URLs
+export const FACEBOOK_URL = 'https://www.facebook.com/catriuspham';
+export const GITHUB_URL = 'https://github.com/catrius';

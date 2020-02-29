@@ -9,8 +9,8 @@ const categories = createReducer([], {
   [successfully(FETCH_CATEGORIES)]: (state, action) => action.payload.data.results,
 });
 
-const sidebar = combineReducers({
+const header = combineReducers({
   categories,
 });
 
-export default sidebar;
+export default header;

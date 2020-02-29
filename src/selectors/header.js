@@ -4,7 +4,7 @@ import { get, isEmpty, map } from 'lodash';
 import { transformCategory } from 'selectors/transfomers';
 
 
-const getCategories = state => get(state, 'sidebar.categories');
+const getCategories = state => get(state, 'header.categories');
 
 
 export const categoriesSelector = createSelector(

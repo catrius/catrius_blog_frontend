@@ -1,35 +1,40 @@
 @import 'styles/variables'
 
 .header
-  width: 100%
-  height: 100px
-  position: sticky
-  top: 0
-  background-color: white
-  z-index: 100
-
-  .content
+  .topbar
+    display: flex
+    height: 121px
+    width: 1140px
     margin: 0 auto
-    width: fit-content
+    padding: 18px 0
+    align-items: center
+    box-sizing: border-box
 
-  .navbar-left
-    text-align: right
-    display: inline-block
+    .logo
+      flex: 1
+      font-size: 60px
+      text-align: center
+      color: $mine-shaft
 
-  .navbar-right
-    text-align: left
-    display: inline-block
+    .social-media
+      flex: 1
+      font-size: 52px
+      text-align: left
 
-  .logo
-    display: inline-block
-    vertical-align: middle
+      .facebook
+        color: #3B5998
 
-  .navbar-item
-    display: inline-block
-    text-decoration: none
-    margin-right: 26px
-    font-family: $play-fair
-    font-style: italic
-    font-weight: 700
-    line-height: 100px
-    color: $haiti
+      .github
+        color: $mine-shaft
+
+      .icon
+        margin-right: 12px
+
+    .pages
+      flex: 1
+      text-align: right
+      font-size: 16px
+
+      .page
+        color: $mine-shaft
+        margin-left: 20px

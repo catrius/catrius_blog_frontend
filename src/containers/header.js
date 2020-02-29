@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 
 import { fetchCategories } from 'actions/fetch-data';
-import Sidebar from 'components/sidebar';
-import { categoriesSelector, fetchedCategoriesSelector } from 'selectors/sidebar';
+import Header from 'components/header';
+import { categoriesSelector, fetchedCategoriesSelector } from 'selectors/header';
 
 
 const mapStateToProps = (state, ownProps) => ({
@@ -14,6 +14,6 @@ const mapDispatchToProps = {
   fetchCategories,
 };
 
-const SideBarContainer = connect(mapStateToProps, mapDispatchToProps)(Sidebar);
+const HeaderContainer = connect(mapStateToProps, mapDispatchToProps)(Header);
 
-export default SideBarContainer;
+export default HeaderContainer;
