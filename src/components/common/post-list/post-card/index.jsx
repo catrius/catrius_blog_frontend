@@ -3,7 +3,8 @@ import cx from 'classnames';
 import { Link } from 'react-router-dom';
 import Dotdotdot from 'react-dotdotdot';
 
-import styles from 'components/common/post-card/post-card.module.sass';
+import styles from './post-card.module.sass';
+
 import { POST_SHAPE } from 'utils/constants';
 
 
@@ -29,9 +30,7 @@ function PostCard(props) {
             Read more<i className={ cx('fas fa-arrow-right', styles['right-arrow-icon']) }/>
           </span>
           <span className={ styles['category'] }>
-            <Link to={ category.url }>
-              <i className={ cx('far fa-folder', styles['category-icon']) }/>{ category.name }
-            </Link>
+            <i className={ cx('far fa-folder', styles['category-icon']) }/>{ category.name }
           </span>
         </div>
       </div>

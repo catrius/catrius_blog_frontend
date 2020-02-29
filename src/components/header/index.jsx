@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import cx from 'classnames';
 import { Link } from 'react-router-dom';
 import { arrayOf, bool, func, shape } from 'prop-types';
 
 import styles from './header.module.sass';
 import Navbar from './navbar';
 
-import { CATEGORY_SHAPE, FACEBOOK_URL, GITHUB_URL } from 'utils/constants';
+import { CATEGORY_SHAPE } from 'utils/constants';
+import Facebook from 'components/common/icons/facebook';
+import Github from 'components/common/icons/github';
 
 
 export default class Header extends Component {
@@ -17,18 +18,13 @@ export default class Header extends Component {
 
   render() {
     const { categories } = this.props;
-    console.warn(categories)
 
     return (
       <div className={ styles['header'] }>
         <div className={ styles['topbar'] }>
           <div className={ styles['social-media'] }>
-            <a className={ styles['facebook'] } href={ FACEBOOK_URL }>
-              <i className={ cx('fab fa-facebook', styles['icon']) }/>
-            </a>
-            <a className={ styles['github'] } href={ GITHUB_URL }>
-              <i className={ cx('fab fa-github', styles['icon']) }/>
-            </a>
+            <Facebook className={ styles['icon'] } />
+            <Github className={ styles['icon'] } />
           </div>
           <Link to='/' className={ styles['logo'] }>Catri.us</Link>
           <div className={ styles['pages'] }>

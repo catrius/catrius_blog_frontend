@@ -6,7 +6,7 @@ import { successfully } from 'utils/common';
 import { FETCH_POSTS } from 'utils/constants';
 
 
-const pageCount = createReducer([], {
+const pageCount = createReducer(0, {
   [successfully(FETCH_POSTS)]: (state, action) => get(action.payload, 'data.page_count'),
 });
 

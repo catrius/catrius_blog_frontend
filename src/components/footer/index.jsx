@@ -1,24 +1,26 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import styles from './footer.module.sass';
 
+import Facebook from 'components/common/icons/facebook';
+import Github from 'components/common/icons/github';
+
 
 function Footer() {
-  const heart = <i className='fas fa-heart' />;
-  const colorlib = (
-    <a
-      className={ styles['highlight'] }
-      href='https://colorlib.com'
-      target='_blank'
-      rel='noopener noreferrer'>
-      Colorlib
-    </a>
-  );
   return (
     <div className={ styles['footer'] }>
-      <div className={ styles['copyright'] }>
-        <p>A blog by <span className={ styles['highlight'] }>Thang Pham</span></p>
-        <p>This template is made with { heart } by { colorlib }</p>
+      <div className={ styles['name'] }>Catri.us</div>
+      <div className={ styles['description'] }>
+        A blog by Thang Pham, where I can freely express myself.
+      </div>
+      <div className={ styles['social-media'] }>
+        <Facebook className={ styles['icon'] } />
+        <Github className={ styles['icon'] } />
+      </div>
+       <div className={ styles['pages'] }>
+        <Link to='#' className={ styles['page'] }>About</Link>
+        <Link to='#' className={ styles['page'] }>Contact</Link>
       </div>
     </div>
   );

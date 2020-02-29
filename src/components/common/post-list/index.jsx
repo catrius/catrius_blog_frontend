@@ -3,9 +3,9 @@ import { arrayOf, func, shape, object } from 'prop-types';
 import { map } from 'lodash';
 
 import styles from './post-list.module.sass';
+import PostCard from './post-card';
 
 import { POST_SHAPE } from 'utils/constants';
-import PostCard from 'components/common/post-card';
 import PaginatorContainer from 'containers/common/paginator';
 
 
