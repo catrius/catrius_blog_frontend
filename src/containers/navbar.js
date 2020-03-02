@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import { fetchCategories } from 'actions/fetch-data';
-import Header from 'components/header';
+import Navbar from 'components/navbar';
 import { categoriesSelector, fetchedCategoriesSelector } from 'selectors/header';
 
 
@@ -14,6 +14,6 @@ const mapDispatchToProps = {
   fetchCategories,
 };
 
-const HeaderContainer = connect(mapStateToProps, mapDispatchToProps)(Header);
+const NavbarContainer = connect(mapStateToProps, mapDispatchToProps)(Navbar);
 
-export default HeaderContainer;
+export default NavbarContainer;

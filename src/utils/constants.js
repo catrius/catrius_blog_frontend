@@ -19,6 +19,7 @@ export const POST_SHAPE = {
   pk: number,
   title: string,
   date: string,
+  shortDate: string,
   excerpt: string,
   thumbnail: string,
   url: string,

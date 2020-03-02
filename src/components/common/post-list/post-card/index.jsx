@@ -9,7 +9,7 @@ import { POST_SHAPE } from 'utils/constants';
 
 
 function PostCard(props) {
-  const { title, date, excerpt, thumbnail, category, url } = props;
+  const { title, shortDate, excerpt, thumbnail, category, url } = props;
   return (
     <Link to={ url } className={ styles['post-card'] }>
       <div className={ styles['thumbnail'] }>
@@ -19,19 +19,16 @@ function PostCard(props) {
         <div className={ styles['title'] }>
           <Dotdotdot clamp={ 2 }>{ title }</Dotdotdot>
         </div>
-        <div className={ styles['date'] }>
-          <i className={ cx('far fa-calendar-alt', styles['calendar-icon']) }/>{ date }
-        </div>
-        <div className={ styles['content'] }>
-          <Dotdotdot clamp={ 6 }>{ excerpt }</Dotdotdot>
-        </div>
-        <div className={ styles['footer'] }>
-          <span className={ styles['read-more'] }>
-            Read more<i className={ cx('fas fa-arrow-right', styles['right-arrow-icon']) }/>
-          </span>
+        <div className={ styles['meta'] }>
+          <div className={ styles['date'] }>
+            <i className={ cx('far fa-calendar-alt', styles['calendar-icon']) }/>{ shortDate }
+          </div>
           <span className={ styles['category'] }>
             <i className={ cx('far fa-folder', styles['category-icon']) }/>{ category.name }
           </span>
+        </div>
+        <div className={ styles['content'] }>
+          <Dotdotdot clamp={ 6 }>{ excerpt }</Dotdotdot>
         </div>
       </div>
     </Link>

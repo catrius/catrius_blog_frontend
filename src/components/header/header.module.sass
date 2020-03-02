@@ -1,40 +1,36 @@
 @import 'styles/variables'
 
 .header
-  .topbar
-    display: flex
-    height: 121px
-    width: 1140px
-    margin: 0 auto
-    padding: 18px 0
-    align-items: center
-    box-sizing: border-box
+  display: flex
+  height: 121px
+  padding: 18px 15px
+  align-items: center
+  box-sizing: border-box
+  max-width: 1140px
+  margin: 0 auto
 
-    .logo
-      flex: 1
-      font-size: 60px
-      text-align: center
+  .logo
+    flex: 1
+    font-size: 60px
+    text-align: center
+    color: $black
+
+  .social-media
+    flex: 1
+    font-size: 52px
+    text-align: left
+
+    .icon
+      margin-right: 12px
+
+  .pages
+    flex: 1
+    text-align: right
+    font-size: 16px
+
+    .page
       color: $black
+      margin-left: 20px
 
-    .social-media
-      flex: 1
-      font-size: 52px
-      text-align: left
-
-      .facebook
-        color: #3B5998
-
-      .github
-        color: $black
-
-      .icon
-        margin-right: 12px
-
-    .pages
-      flex: 1
-      text-align: right
-      font-size: 16px
-
-      .page
-        color: $black
-        margin-left: 20px
+      &:hover
+        color: $asbestos

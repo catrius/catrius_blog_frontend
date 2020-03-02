@@ -14,7 +14,8 @@ export const transformPostCategory = category => ({
 export const transformPost = post => ({
   pk: get(post, 'pk'),
   title: get(post, 'title', ''),
-  date: moment(get(post, 'created')).format('lll'),
+  date: moment(get(post, 'created')).format('LLL'),
+  shortDate: moment(get(post, 'created')).format('ll'),
   excerpt: get(post, 'excerpt', ''),
   content: get(post, 'content', ''),
   thumbnail: get(post, 'thumbnail', publicUrl('assets/default-thumbnail.jpg')),
