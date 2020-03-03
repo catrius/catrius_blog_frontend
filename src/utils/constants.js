@@ -1,7 +1,7 @@
 import { arrayOf, number, shape, string } from 'prop-types';
 
 // URLs
-export const BASE_API_URL = 'http://localhost:8000';
+export const BASE_API_URL = 'http://192.168.0.108:8000';
 export const POSTS_URL = '/blog/posts/';
 export const CATEGORIES_URL = '/blog/categories/';
 
@@ -42,3 +42,16 @@ export const CATEGORY_SHAPE = {
 // Social media URLs
 export const FACEBOOK_URL = 'https://www.facebook.com/catriuspham';
 export const GITHUB_URL = 'https://github.com/catrius';
+
+// Device types
+export const DESKTOP = 'DESKTOP';
+export const TABLET = 'TABLET';
+export const MOBILE = 'MOBILE';
+
+// Max widths
+// = postCardWidth / flexBasic + paddingLeft + paddingRight = 330px / 0.3 + 15px * 2
+export const WIDTHS = {
+  [DESKTOP]: 1130, // = 330px / 0.3 + 15px * 2
+  [TABLET]: 725, // = 330px / 0.475 + 15px * 2
+  [MOBILE]: 360, // = 330px / 1 + 15px * 2
+};

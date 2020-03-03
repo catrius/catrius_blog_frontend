@@ -7,7 +7,8 @@
   .categories
     padding: 0 15px
     margin: 0 auto
-    max-width: 1140px
+    max-width: $max-width
+    min-width: $min-width
     box-sizing: border-box
 
     .category
@@ -20,3 +21,6 @@
 
       &:hover
         color: $asbestos
+
+      &:last-child
+        margin-right: 0

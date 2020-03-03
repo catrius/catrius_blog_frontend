@@ -2,54 +2,58 @@
 
 $link-size: 34px
 
-.paginator
-  display: inline-block
+.paginator-wrapper
   padding-left: 0
   margin: 22px 0
-  user-select: none
-  background-color: $white
 
-  .page, .previous, .next, .break
+  .paginator
     display: inline-block
-    cursor: pointer
-    margin-left: -1px
+    padding-left: 0
+    margin: 22px 0
+    user-select: none
+    background-color: $white
 
-    .paginator-link
-      display: block
-      text-decoration: none
-      color: $belize-hole
-      min-width: $link-size
-      height: $link-size
-      line-height: $link-size
-      text-align: center
-      box-sizing: border-box
-      border: 1px solid $silver
+    .page, .previous, .next, .break
+      display: inline-block
+      cursor: pointer
+      margin-left: -1px
 
-      &:hover
+      .paginator-link
+        display: block
+        text-decoration: none
         color: $belize-hole
-        background-color: $silver
+        min-width: $link-size
+        height: $link-size
+        line-height: $link-size
+        text-align: center
+        box-sizing: border-box
+        border: 1px solid $silver
 
-  .previous, .next
-    .paginator-link
-      box-sizing: border-box
+        &:hover
+          color: $belize-hole
+          background-color: $silver
 
-  .next
-    .paginator-link
-      border: 1px solid $silver
+    .previous, .next
+      .paginator-link
+        box-sizing: border-box
 
-  .active
-    cursor: unset
+    .next
+      .paginator-link
+        border: 1px solid $silver
 
-    .paginator-link
-      color: $white
-      background-color: $belize-hole
-      cursor: default
-      pointer-events: none
-      border-color: $belize-hole
+    .active
+      cursor: unset
 
-  .disabled
-    cursor: unset
+      .paginator-link
+        color: $white
+        background-color: $belize-hole
+        cursor: default
+        pointer-events: none
+        border-color: $belize-hole
 
-    .paginator-link
-      pointer-events: none
-      color: $asbestos
+    .disabled
+      cursor: unset
+
+      .paginator-link
+        pointer-events: none
+        color: $asbestos

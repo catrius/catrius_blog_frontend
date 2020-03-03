@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 
 import styles from './navbar.module.sass';
 
-import { CATEGORY_SHAPE } from 'utils/constants';
+import { CATEGORY_SHAPE, MOBILE } from 'utils/constants';
+import { DeviceTypeContext } from 'contexts';
 
 
 export default class Navbar extends Component {
@@ -16,10 +17,12 @@ export default class Navbar extends Component {
 
   render() {
     const { categories } = this.props;
+    const device = this.context;
+    const textAlign = device === MOBILE ? 'center' : 'left';
 
     return (
       <div className={ styles['navbar'] }>
-        <div className={ styles['categories'] }>
+        <div className={ styles['categories'] } style={ { textAlign } }>
           {
             map(categories, category => (
               <Link to={ category.url } className={ styles['category'] } key={ category.pk }>
@@ -38,3 +41,5 @@ Navbar.propTypes = {
   fetchedCategories: bool,
   categories: arrayOf(shape(CATEGORY_SHAPE)),
 };
+
+Navbar.contextType = DeviceTypeContext;
