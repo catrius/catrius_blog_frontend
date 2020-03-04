@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { map } from 'lodash';
-import { arrayOf, bool, func, shape } from 'prop-types';
+import { arrayOf, bool, func, shape, number } from 'prop-types';
 import { Link } from 'react-router-dom';
+import cx from 'classnames';
 
 import styles from './navbar.module.sass';
 
@@ -16,7 +17,7 @@ export default class Navbar extends Component {
   }
 
   render() {
-    const { categories } = this.props;
+    const { categories, pk } = this.props;
     const device = this.context;
     const textAlign = device === MOBILE ? 'center' : 'left';
 
@@ -25,7 +26,10 @@ export default class Navbar extends Component {
         <div className={ styles['categories'] } style={ { textAlign } }>
           {
             map(categories, category => (
-              <Link to={ category.url } className={ styles['category'] } key={ category.pk }>
+              <Link
+                to={ category.url }
+                className={ cx(styles['category'], { [styles['current']]: pk === category.pk }) }
+                key={ category.pk }>
                 { category.name }
               </Link>
             ))
@@ -39,6 +43,7 @@ export default class Navbar extends Component {
 Navbar.propTypes = {
   fetchCategories: func,
   fetchedCategories: bool,
+  pk: number,
   categories: arrayOf(shape(CATEGORY_SHAPE)),
 };
 
