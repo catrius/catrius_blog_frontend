@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 import { fetchCategories } from 'actions/fetch-data';
 import Navbar from 'components/navbar';
-import { categoriesSelector, fetchedCategoriesSelector } from 'selectors/header';
+import { categoriesSelector, fetchedCategoriesSelector } from 'selectors/categories';
 import { getCategoryPK } from 'selectors/router';
 
 

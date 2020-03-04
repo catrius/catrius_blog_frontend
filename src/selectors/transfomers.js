@@ -11,17 +11,21 @@ export const transformPostCategory = category => ({
   url: categoryUrl(get(category, 'pk')),
 });
 
-export const transformPost = post => ({
-  pk: get(post, 'pk'),
-  title: get(post, 'title', ''),
-  date: moment(get(post, 'created')).format('LLL'),
-  shortDate: moment(get(post, 'created')).format('ll'),
-  excerpt: get(post, 'excerpt', ''),
-  content: get(post, 'content', ''),
-  thumbnail: get(post, 'thumbnail', publicUrl('assets/default-thumbnail.jpg')),
-  category: transformPostCategory(get(post, 'category', {})),
-  url: postUrl(get(post, 'pk')),
-});
+export const transformPost = post => {
+  const created = get(post, 'created');
+  const momentCreated = created && moment(created);
+  return {
+    pk: get(post, 'pk'),
+    title: get(post, 'title', ''),
+    date: momentCreated && momentCreated.format('LLL'),
+    shortDate: momentCreated && momentCreated.format('ll'),
+    excerpt: get(post, 'excerpt', ''),
+    content: get(post, 'content', ''),
+    thumbnail: get(post, 'thumbnail', publicUrl('assets/default-thumbnail.jpg')),
+    category: transformPostCategory(get(post, 'category', {})),
+    url: postUrl(get(post, 'pk')),
+  };
+};
 
 export const transformCategory = category => ({
   pk: get(category, 'pk'),

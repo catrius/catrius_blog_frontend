@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 import { fetchPost } from 'actions/fetch-data';
 import PostPage from 'components/post-page';
-import { postSelector } from 'selectors/post-page';
+import { postSelector } from 'selectors/post';
 import { getPK } from 'selectors/router';
 
 

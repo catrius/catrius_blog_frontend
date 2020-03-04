@@ -4,7 +4,7 @@ import { get } from 'lodash';
 import { transformPost } from 'selectors/transfomers';
 
 
-const getPost = state => get(state, 'postPage.post');
+const getPost = state => get(state, 'post');
 
 export const postSelector = createSelector(
   getPost,
