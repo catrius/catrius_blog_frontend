@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { func, number, shape } from 'prop-types';
+import { func, number, shape, bool } from 'prop-types';
 import { Link } from 'react-router-dom';
 import { isNil } from 'lodash';
 
@@ -10,14 +10,14 @@ import { POST_SHAPE } from 'utils/constants';
 
 export default class PostPage extends Component {
   componentDidMount() {
-    const { fetchPost, pk } = this.props;
-    fetchPost(pk);
+    const { fetchPost, pk, fetchedPost } = this.props;
+    !fetchedPost && fetchPost(pk);
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    const { fetchPost, pk } = this.props;
+    const { fetchPost, pk, fetchedPost } = this.props;
     if (!isNil(pk) && pk !== prevProps.pk) {
-      fetchPost(pk);
+      fetchedPost && fetchPost(pk);
     }
   }
 
@@ -40,5 +40,6 @@ export default class PostPage extends Component {
 PostPage.propTypes = {
   pk: number,
   fetchPost: func,
+  fetchedPost: bool,
   post: shape(POST_SHAPE),
 };
