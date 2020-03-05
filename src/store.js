@@ -19,7 +19,9 @@ const store = configureStore({
   reducer: rootReducer(history),
   middleware: [
     axiosMiddleware(client),
-    ...getDefaultMiddleware(),
+    ...getDefaultMiddleware({
+      serializableCheck: false,
+    }),
   ],
   devTools: true,
 });

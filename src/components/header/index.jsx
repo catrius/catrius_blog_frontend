@@ -40,5 +40,3 @@ Header.propTypes = {
   fetchedCategories: bool,
   categories: arrayOf(shape(CATEGORY_SHAPE)),
 };
-
-Header.contextType = DeviceTypeContext;

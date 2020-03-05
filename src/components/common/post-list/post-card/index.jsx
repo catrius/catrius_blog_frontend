@@ -11,12 +11,12 @@ import { DeviceTypeContext } from 'contexts';
 
 export default function PostCard(props) {
   const { title, shortDate, excerpt, thumbnail, category, url } = props;
-    const device = useContext(DeviceTypeContext);
-    const flexBasicMap = {
-      [DESKTOP]: '30%',
-      [TABLET]: '47.5%',
-      [MOBILE]: '100%',
-    };
+  const device = useContext(DeviceTypeContext);
+  const flexBasicMap = {
+    [DESKTOP]: '30%',
+    [TABLET]: '47.5%',
+    [MOBILE]: '100%',
+  };
 
   return (
     <Link to={ url } className={ styles['post-card'] } style={ { flex: `0 0 ${ flexBasicMap[device] }` } }>
@@ -44,4 +44,3 @@ export default function PostCard(props) {
 }
 
 PostCard.propTypes = POST_SHAPE;
-PostCard.contextType = DeviceTypeContext;
