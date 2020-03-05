@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { func, number, shape, bool } from 'prop-types';
 import { Link } from 'react-router-dom';
 import { isNil } from 'lodash';
+import ReactMarkdown from 'react-markdown';
 
 import styles from './post-page.module.sass';
 
@@ -33,7 +34,7 @@ export default class PostPage extends Component {
           <Link to={ category.url } className={ styles['category'] }>{ category.name }</Link>
           <span className={ styles['date'] }>{ date }</span>
         </div>
-        <div className={ styles['content'] }>{ content }</div>
+        <ReactMarkdown className={ styles['content'] } source={ content }/>
       </div>
     );
   }
