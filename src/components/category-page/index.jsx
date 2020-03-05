@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { arrayOf, func, number, shape } from 'prop-types';
-import { isNil } from 'lodash';
 
 import styles from './category-page.module.sass';
 
@@ -9,16 +8,18 @@ import PostList from 'components/common/post-list';
 
 
 export default class CategoryPage extends Component {
+  fetch() {
+    const { fetchPosts, pk, page } = this.props;
+    fetchPosts({ category: pk, page });
+  }
+
   componentDidMount() {
-    const { fetchPosts, pk } = this.props;
-    fetchPosts({ category: pk });
+    this.fetch();
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    const { fetchPosts, pk } = this.props;
-    if (!isNil(pk) && pk !== prevProps.pk) {
-      fetchPosts({ category: pk });
-    }
+    const { pk, page } = this.props;
+    (pk !== prevProps.pk || prevProps.page !== page) && this.fetch();
   }
 
   render() {
@@ -34,5 +35,6 @@ export default class CategoryPage extends Component {
 CategoryPage.propTypes = {
   fetchPosts: func,
   pk: number,
+  page: number,
   posts: arrayOf(shape(POST_SHAPE)),
 };

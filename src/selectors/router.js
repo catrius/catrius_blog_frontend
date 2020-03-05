@@ -1,7 +1,9 @@
 import { get } from 'lodash';
+import { createSelector } from '@reduxjs/toolkit';
 
 
 export const getPK = (state, props) => parseInt(get(props, 'match.params.pk', ''));
+
 export const getCategoryPK = (state, props) => {
   const pathname = get(props, 'location.pathname', '');
   const matched = pathname.match(/^\/category\/(\d+)/);
@@ -9,3 +11,10 @@ export const getCategoryPK = (state, props) => {
     return parseInt(matched[1]);
   return null;
 };
+
+export const getQueryParams = (state, props) => new URLSearchParams(get(props, 'location.search', ''));
+
+export const getPage = createSelector(
+  getQueryParams,
+  queryParams => parseInt(queryParams.get('page')) || 1,
+);

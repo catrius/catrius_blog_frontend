@@ -11,6 +11,8 @@ import { POST_SHAPE } from 'utils/constants';
 export default class PostPage extends Component {
   componentDidMount() {
     const { fetchPost, pk, fetchedPost } = this.props;
+    window.scroll(0, 0);
+
     !fetchedPost && fetchPost(pk);
   }
 

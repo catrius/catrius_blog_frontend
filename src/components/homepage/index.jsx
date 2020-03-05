@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { arrayOf, func, shape } from 'prop-types';
+import { arrayOf, func, number, shape } from 'prop-types';
 
 import styles from './homepage.module.sass';
 
@@ -8,16 +8,25 @@ import PostList from 'components/common/post-list';
 
 
 export default class Homepage extends Component {
+  fetch() {
+    const { fetchPosts, page } = this.props;
+    fetchPosts({ page });
+  }
+
   componentDidMount() {
-    const { fetchPosts } = this.props;
-    fetchPosts();
+    this.fetch();
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    const { page } = this.props;
+    prevProps.page !== page && this.fetch();
   }
 
   render() {
-    const { posts, fetchPosts } = this.props;
+    const { posts } = this.props;
     return (
       <div className={ styles['homepage'] }>
-       <PostList posts={ posts } fetchPosts={ fetchPosts }/>
+       <PostList posts={ posts }/>
       </div>
     );
   }
@@ -25,5 +34,6 @@ export default class Homepage extends Component {
 
 Homepage.propTypes = {
   fetchPosts: func,
+  page: number,
   posts: arrayOf(shape(POST_SHAPE)),
 };

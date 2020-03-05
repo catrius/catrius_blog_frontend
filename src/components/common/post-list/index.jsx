@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { arrayOf, func, shape, object } from 'prop-types';
+import { arrayOf, shape } from 'prop-types';
 import { map } from 'lodash';
 
 import styles from './post-list.module.sass';
@@ -10,8 +10,8 @@ import PaginatorContainer from 'containers/common/paginator';
 
 
 export default class PostList extends Component {
-render() {
-    const { posts, fetchPosts, fetchParams } = this.props;
+  render() {
+    const { posts } = this.props;
     return (
       <Fragment>
         <div className={ styles['post-list'] }>
@@ -24,14 +24,12 @@ render() {
             ))
           }
         </div>
-        <PaginatorContainer fetch={ fetchPosts } fetchParams={ fetchParams }/>
+        <PaginatorContainer />
       </Fragment>
     );
   }
 }
 
 PostList.propTypes = {
-  fetchPosts: func,
   posts: arrayOf(shape(POST_SHAPE)),
-  fetchParams: object,
 };

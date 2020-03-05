@@ -9,19 +9,14 @@ import { MOBILE } from 'utils/constants';
 
 
 export default function Paginator(props) {
-  const handlePageChange = data => {
-    const { fetch, fetchParams } = props;
-    fetch({ ...fetchParams, page: data.selected + 1 });
-    window.scrollTo(0, 0);
-  };
-
-  const { pageCount } = props;
+  const { pageCount, page, history } = props;
   const device = useContext(DeviceTypeContext);
   const style = device === MOBILE ? {
     margin: '0 auto',
     display: 'flex',
     justifyContent: 'center',
   } : {};
+  const handlePageChange = data => history.push(`?page=${data.selected + 1}`);
 
   return (
     <div
@@ -29,6 +24,7 @@ export default function Paginator(props) {
       style={ style }
     >
       <ReactPaginate
+        forcePage={ page - 1 }
         pageCount={ pageCount }
         onPageChange={ handlePageChange }
         previousLabel='«'
@@ -44,6 +40,7 @@ export default function Paginator(props) {
         previousLinkClassName={ styles['paginator-link'] }
         nextLinkClassName={ styles['paginator-link'] }
         breakLinkClassName={ styles['paginator-link'] }
+        hrefBuilder={ pageIndex => `?page=${pageIndex}` }
       />
     </div>
   );
@@ -51,7 +48,9 @@ export default function Paginator(props) {
 
 Paginator.propTypes = {
   pageCount: number,
+  page: number,
   onClick: func,
   fetch: func,
   fetchParams: object,
+  history: object,
 };
