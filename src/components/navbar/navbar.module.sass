@@ -27,13 +27,17 @@
       height: 90px
       align-items: center
       margin-right: 16px
+      box-sizing: border-box
 
       &:hover
-        color: $chain-gang-grey
+        color: $belize-hole
 
       &:last-child
         margin-right: 0
 
       &.current
-        color: $chain-gang-grey
+        border-bottom: 3px solid $belize-hole
         cursor: default
+
+        &:hover
+          color: $white
