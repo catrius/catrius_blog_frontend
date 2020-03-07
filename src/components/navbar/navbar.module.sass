@@ -1,43 +1,71 @@
 @import 'styles/variables'
 
+$search-height: 25px
+
 .navbar
   background-color: $black
-  height: 92px
 
-  .categories
-    padding: 0 15px
+  .wrapper
     margin: 0 auto
     max-width: $max-width
     min-width: $min-width
+    display: flex
+    justify-content: space-between
+    padding: 0 15px
     box-sizing: border-box
+    flex-wrap: wrap
+    height: 92px
 
     &.small
-      text-align: center
+      justify-content: center
 
-    &.medium
-      text-align: left
+      .categories.half
+        height: 50%
 
-    &.large
-      text-align: left
+    .categories
+      flex: 0 0 auto
 
-    .category
-      color: $white
-      background: transparent
-      display: inline-flex
-      height: 90px
-      align-items: center
-      margin-right: 16px
-      box-sizing: border-box
-
-      &:hover
-        color: $belize-hole
-
-      &:last-child
-        margin-right: 0
-
-      &.current
-        border-bottom: 3px solid $belize-hole
-        cursor: default
+      .category
+        color: $white
+        background: transparent
+        display: inline-flex
+        height: 100%
+        align-items: center
+        margin-right: 16px
+        box-sizing: border-box
+        min-width: 15px
+        border-bottom: 3px solid $black
 
         &:hover
-          color: $white
+          color: $belize-hole
+
+        &:last-child
+          margin-right: 0
+
+        &.current
+          border-bottom: 3px solid $belize-hole
+          cursor: default
+
+          &:hover
+            color: $white
+
+    .search
+      display: flex
+      align-items: center
+      justify-content: right
+      flex: 0 0 auto
+
+      .search-element
+        border: none
+
+      .search-text
+        line-height: $search-height
+        padding: 0 8px
+
+      .search-button
+        height: $search-height
+        width: $search-height
+        padding: 0
+        background-color: $belize-hole
+        color: white
+        cursor: pointer

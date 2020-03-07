@@ -10,7 +10,7 @@ import Footer from 'components/footer';
 import Router from 'components/router';
 import store, { history } from 'store';
 import Header from 'components/header';
-import { DeviceTypeContext } from 'contexts';
+import { DeviceContext } from 'contexts';
 import { WIDTHS, DESKTOP, TABLET, MOBILE, RESPONSIVE_CLASS_NAMES } from 'utils/constants';
 
 
@@ -24,14 +24,14 @@ export default function App() {
     <Provider store={ store }>
       <ConnectedRouter history={ history }>
         <div className={ styles['App'] }>
-          <DeviceTypeContext.Provider value={ device }>
+          <DeviceContext.Provider value={ device }>
             <Header/>
             <NavbarContainer/>
             <div className={ cx(styles['content'], styles[RESPONSIVE_CLASS_NAMES[device]]) }>
               <Router/>
             </div>
             <Footer/>
-          </DeviceTypeContext.Provider>
+          </DeviceContext.Provider>
         </div>
       </ConnectedRouter>
     </Provider>

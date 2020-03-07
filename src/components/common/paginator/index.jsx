@@ -5,14 +5,14 @@ import cx from 'classnames';
 
 import styles from './paginator.module.sass';
 
-import { DeviceTypeContext } from 'contexts';
+import { DeviceContext } from 'contexts';
 import { RESPONSIVE_CLASS_NAMES } from 'utils/constants';
 
 
 export default function Paginator(props) {
   const { pageCount, page, history } = props;
-  const device = useContext(DeviceTypeContext);
-  const handlePageChange = data => history.push(`?page=${data.selected + 1}`);
+  const device = useContext(DeviceContext);
+  const handlePageChange = data => history.push(`?page=${ data.selected + 1 }`);
 
   return (
     <div
@@ -35,7 +35,7 @@ export default function Paginator(props) {
         previousLinkClassName={ styles['paginator-link'] }
         nextLinkClassName={ styles['paginator-link'] }
         breakLinkClassName={ styles['paginator-link'] }
-        hrefBuilder={ pageIndex => `?page=${pageIndex}` }
+        hrefBuilder={ pageIndex => `?page=${ pageIndex }` }
       />
     </div>
   );

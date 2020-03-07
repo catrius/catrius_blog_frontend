@@ -6,12 +6,12 @@ import Dotdotdot from 'react-dotdotdot';
 import styles from './post-card.module.sass';
 
 import { POST_SHAPE, RESPONSIVE_CLASS_NAMES } from 'utils/constants';
-import { DeviceTypeContext } from 'contexts';
+import { DeviceContext } from 'contexts';
 
 
 export default function PostCard(props) {
   const { title, shortDate, excerpt, thumbnail, category, url } = props;
-  const device = useContext(DeviceTypeContext);
+  const device = useContext(DeviceContext);
 
   return (
     <Link to={ url } className={ cx(styles['post-card'], styles[RESPONSIVE_CLASS_NAMES[device]]) } >

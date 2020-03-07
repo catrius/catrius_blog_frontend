@@ -7,11 +7,11 @@ import styles from './header.module.sass';
 import { CATEGORY_SHAPE, MOBILE } from 'utils/constants';
 import Facebook from 'components/common/icons/facebook';
 import Github from 'components/common/icons/github';
-import { DeviceTypeContext } from 'contexts';
+import { DeviceContext } from 'contexts';
 
 
 export default function Header() {
-  const device = useContext(DeviceTypeContext);
+  const device = useContext(DeviceContext);
   return (
     <div className={ styles['header'] }>
       {

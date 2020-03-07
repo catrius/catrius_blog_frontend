@@ -1,13 +1,14 @@
 import { arrayOf, number, shape, string } from 'prop-types';
 
-// URLs
+// API URLs
 export const BASE_API_URL = 'http://192.168.0.108:8000';
-export const POSTS_URL = '/blog/posts/';
-export const CATEGORIES_URL = '/blog/categories/';
+export const POSTS_API_URL = '/blog/posts/';
+export const CATEGORIES_API_URL = '/blog/categories/';
 
 // Routes
 export const POST_ROUTER = '/post/:pk/';
 export const CATEGORY_ROUTER = '/category/:pk/';
+export const SEARCH_ROUTER = '/search/';
 
 // Actions
 export const FETCH_POSTS = 'FETCH_POSTS';

@@ -4,13 +4,14 @@ import { withRouter } from 'react-router-dom';
 import { fetchCategories } from 'actions/fetch-data';
 import Navbar from 'components/navbar';
 import { categoriesSelector, fetchedCategoriesSelector } from 'selectors/categories';
-import { getCategoryPK } from 'selectors/router';
+import { getCategoryPK, getSearchQuery } from 'selectors/router';
 
 
 const mapStateToProps = (state, ownProps) => ({
   categories: categoriesSelector(state),
   fetchedCategories: fetchedCategoriesSelector(state),
   pk: getCategoryPK(state, ownProps),
+  searchQuery: getSearchQuery(state, ownProps),
 });
 
 const mapDispatchToProps = {

@@ -18,3 +18,8 @@ export const getPage = createSelector(
   getQueryParams,
   queryParams => parseInt(queryParams.get('page')) || 1,
 );
+
+export const getSearchQuery = createSelector(
+  getQueryParams,
+  queryParams => queryParams.get('q') || '',
+);
