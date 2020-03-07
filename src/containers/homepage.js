@@ -16,6 +16,6 @@ const mapDispatchToProps = dispatch => ({
   fetchPosts: params => dispatch(fetchPosts(params)()),
 });
 
-const HomePageContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(Homepage));
+const HomepageContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(Homepage));
 
-export default HomePageContainer;
+export default HomepageContainer;
