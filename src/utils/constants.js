@@ -48,6 +48,13 @@ export const DESKTOP = 'DESKTOP';
 export const TABLET = 'TABLET';
 export const MOBILE = 'MOBILE';
 
+// Device classname map
+export const RESPONSIVE_CLASS_NAMES = {
+  [DESKTOP]: 'large',
+  [TABLET]: 'medium',
+  [MOBILE]: 'small',
+};
+
 // Max widths
 // = postCardWidth / flexBasic + paddingLeft + paddingRight = 330px / 0.3 + 15px * 2
 export const WIDTHS = {

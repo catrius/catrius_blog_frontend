@@ -5,21 +5,16 @@ import Dotdotdot from 'react-dotdotdot';
 
 import styles from './post-card.module.sass';
 
-import { POST_SHAPE, DESKTOP, TABLET, MOBILE } from 'utils/constants';
+import { POST_SHAPE, RESPONSIVE_CLASS_NAMES } from 'utils/constants';
 import { DeviceTypeContext } from 'contexts';
 
 
 export default function PostCard(props) {
   const { title, shortDate, excerpt, thumbnail, category, url } = props;
   const device = useContext(DeviceTypeContext);
-  const flexBasicMap = {
-    [DESKTOP]: '30%',
-    [TABLET]: '47.5%',
-    [MOBILE]: '100%',
-  };
 
   return (
-    <Link to={ url } className={ styles['post-card'] } style={ { flex: `0 0 ${ flexBasicMap[device] }` } }>
+    <Link to={ url } className={ cx(styles['post-card'], styles[RESPONSIVE_CLASS_NAMES[device]]) } >
       <div className={ styles['thumbnail'] }>
         <img className={ styles['thumbnail-image'] } src={ thumbnail } alt=''/>
       </div>

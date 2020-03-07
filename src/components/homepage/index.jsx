@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { arrayOf, func, number, shape } from 'prop-types';
 
-import styles from './homepage.module.sass';
-
 import { POST_SHAPE } from 'utils/constants';
 import PostList from 'components/common/post-list';
 
@@ -25,9 +23,7 @@ export default class Homepage extends Component {
   render() {
     const { posts } = this.props;
     return (
-      <div className={ styles['homepage'] }>
-       <PostList posts={ posts }/>
-      </div>
+      <PostList posts={ posts } />
     );
   }
 }

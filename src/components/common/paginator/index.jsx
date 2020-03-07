@@ -1,27 +1,22 @@
 import React, { useContext } from 'react';
 import { func, number, object } from 'prop-types';
 import ReactPaginate from 'react-paginate';
+import cx from 'classnames';
 
 import styles from './paginator.module.sass';
 
 import { DeviceTypeContext } from 'contexts';
-import { MOBILE } from 'utils/constants';
+import { RESPONSIVE_CLASS_NAMES } from 'utils/constants';
 
 
 export default function Paginator(props) {
   const { pageCount, page, history } = props;
   const device = useContext(DeviceTypeContext);
-  const style = device === MOBILE ? {
-    margin: '0 auto',
-    display: 'flex',
-    justifyContent: 'center',
-  } : {};
   const handlePageChange = data => history.push(`?page=${data.selected + 1}`);
 
   return (
     <div
-      className={ styles['paginator-wrapper'] }
-      style={ style }
+      className={ cx(styles['paginator-wrapper'], styles[RESPONSIVE_CLASS_NAMES[device]]) }
     >
       <ReactPaginate
         forcePage={ page - 1 }

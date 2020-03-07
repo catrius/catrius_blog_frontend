@@ -6,7 +6,7 @@ import cx from 'classnames';
 
 import styles from './navbar.module.sass';
 
-import { CATEGORY_SHAPE, MOBILE } from 'utils/constants';
+import { CATEGORY_SHAPE, RESPONSIVE_CLASS_NAMES } from 'utils/constants';
 import { DeviceTypeContext } from 'contexts';
 
 
@@ -19,11 +19,10 @@ export default class Navbar extends Component {
   render() {
     const { categories, pk } = this.props;
     const device = this.context;
-    const textAlign = device === MOBILE ? 'center' : 'left';
 
     return (
       <div className={ styles['navbar'] }>
-        <div className={ styles['categories'] } style={ { textAlign } }>
+        <div className={ cx(styles['categories'], styles[RESPONSIVE_CLASS_NAMES[device]]) }>
           {
             map(categories, category => (
               <Link

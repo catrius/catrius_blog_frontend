@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { arrayOf, func, number, shape } from 'prop-types';
 
-import styles from './category-page.module.sass';
-
 import { POST_SHAPE } from 'utils/constants';
 import PostList from 'components/common/post-list';
 
@@ -23,11 +21,9 @@ export default class CategoryPage extends Component {
   }
 
   render() {
-    const { posts, fetchPosts, pk } = this.props;
+    const { posts } = this.props;
     return (
-      <div className={ styles['category-page'] }>
-       <PostList posts={ posts } fetchPosts={ fetchPosts } fetchParams={ { category: pk } }/>
-      </div>
+      <PostList posts={ posts } />
     );
   }
 }
