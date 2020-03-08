@@ -4,7 +4,7 @@ import { arrayOf, bool, func, shape } from 'prop-types';
 
 import styles from './header.module.sass';
 
-import { CATEGORY_SHAPE, MOBILE } from 'utils/constants';
+import { CATEGORY_SHAPE, MOBILE, WEB_NAME } from 'utils/constants';
 import Facebook from 'components/common/icons/facebook';
 import Github from 'components/common/icons/github';
 import { DeviceContext } from 'contexts';
@@ -22,7 +22,7 @@ export default function Header() {
           </div>
         ) : null
       }
-      <Link to='/' className={ styles['logo'] }>Catri.us</Link>
+      <Link to='/' className={ styles['logo'] }>{ WEB_NAME }</Link>
       {
         device !== MOBILE ? (
           <div className={ styles['pages'] }>

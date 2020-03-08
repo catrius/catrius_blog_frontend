@@ -1,6 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
 
-import { successfully } from 'utils/common';
+import { successfully } from 'utils/axios-suffixes';
 import { FETCH_CATEGORIES } from 'utils/constants';
 
 

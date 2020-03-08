@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { func, number, shape, bool } from 'prop-types';
+import { bool, func, number, shape } from 'prop-types';
 import { Link } from 'react-router-dom';
 import { isNil } from 'lodash';
 import ReactMarkdown from 'react-markdown';
@@ -7,6 +7,7 @@ import ReactMarkdown from 'react-markdown';
 import styles from './post-page.module.sass';
 
 import { POST_SHAPE } from 'utils/constants';
+import MetaPage from 'components/common/meta-page';
 
 
 export default class PostPage extends Component {
@@ -26,16 +27,18 @@ export default class PostPage extends Component {
 
   render() {
     const { post } = this.props;
-    const { title, date, category, content } = post;
+    const { title, date, category, content, excerpt } = post;
     return (
-      <div className={ styles['post-page'] }>
-        <h4 className={ styles['title'] }>{ title }</h4>
-        <div className={ styles['meta'] }>
-          <Link to={ category.url } className={ styles['category'] }>{ category.name }</Link>
-          <span className={ styles['date'] }>{ date }</span>
+      <MetaPage title={ title } description={ excerpt }>
+        <div className={ styles['post-page'] }>
+          <h4 className={ styles['title'] }>{ title }</h4>
+          <div className={ styles['meta'] }>
+            <Link to={ category.url } className={ styles['category'] }>{ category.name }</Link>
+            <span className={ styles['date'] }>{ date }</span>
+          </div>
+          <ReactMarkdown className={ styles['content'] } source={ content }/>
         </div>
-        <ReactMarkdown className={ styles['content'] } source={ content }/>
-      </div>
+      </MetaPage>
     );
   }
 }

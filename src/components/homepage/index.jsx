@@ -3,6 +3,7 @@ import { arrayOf, func, number, shape } from 'prop-types';
 
 import { POST_SHAPE } from 'utils/constants';
 import PostList from 'components/common/post-list';
+import MetaPage from 'components/common/meta-page';
 
 
 export default class Homepage extends Component {
@@ -23,7 +24,9 @@ export default class Homepage extends Component {
   render() {
     const { posts } = this.props;
     return (
-      <PostList posts={ posts } />
+      <MetaPage>
+        <PostList posts={ posts } />
+      </MetaPage>
     );
   }
 }

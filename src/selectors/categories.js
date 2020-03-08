@@ -1,7 +1,8 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { get, isEmpty, map } from 'lodash';
+import { find, get, isEmpty, map } from 'lodash';
 
 import { transformCategory } from 'selectors/transfomers';
+import { getPK } from 'selectors/router';
 
 
 const getCategories = state => get(state, 'categories');
@@ -15,4 +16,10 @@ export const categoriesSelector = createSelector(
 export const fetchedCategoriesSelector = createSelector(
   getCategories,
   categories => !isEmpty(categories),
+);
+
+export const categorySelector = createSelector(
+  getPK,
+  getCategories,
+  (pk, categories) => transformCategory(find(categories, { pk })),
 );

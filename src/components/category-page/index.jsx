@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { arrayOf, func, number, shape } from 'prop-types';
 
-import { POST_SHAPE } from 'utils/constants';
+import { CATEGORY_SHAPE, POST_SHAPE } from 'utils/constants';
 import PostList from 'components/common/post-list';
+import MetaPage from 'components/common/meta-page';
 
 
 export default class CategoryPage extends Component {
@@ -21,9 +22,11 @@ export default class CategoryPage extends Component {
   }
 
   render() {
-    const { posts } = this.props;
+    const { posts, category } = this.props;
     return (
-      <PostList posts={ posts } />
+      <MetaPage title={ category.name } description={ category.description }>
+        <PostList posts={ posts } />
+      </MetaPage>
     );
   }
 }
@@ -33,4 +36,5 @@ CategoryPage.propTypes = {
   pk: number,
   page: number,
   posts: arrayOf(shape(POST_SHAPE)),
+  category: shape(CATEGORY_SHAPE),
 };

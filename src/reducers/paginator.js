@@ -2,7 +2,7 @@ import { createReducer } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 import { get } from 'lodash';
 
-import { successfully } from 'utils/common';
+import { successfully } from 'utils/axios-suffixes';
 import { FETCH_POSTS } from 'utils/constants';
 
 

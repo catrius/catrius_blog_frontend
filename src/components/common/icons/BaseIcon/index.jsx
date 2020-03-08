@@ -6,10 +6,10 @@ import styles from './base-icon.module.sass';
 
 
 function BaseIcon(props) {
-  const { className, href } = props;
+  const { className, href, children } = props;
   return (
     <a className={ cx(styles['base'], className) } href={ href }>
-      { props.children }
+      { children }
     </a>
   );
 }

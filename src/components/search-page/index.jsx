@@ -3,6 +3,7 @@ import { arrayOf, func, number, shape, string } from 'prop-types';
 
 import { POST_SHAPE } from 'utils/constants';
 import PostList from 'components/common/post-list';
+import MetaPage from 'components/common/meta-page';
 
 
 export default class SearchPage extends Component {
@@ -21,9 +22,12 @@ export default class SearchPage extends Component {
   }
 
   render() {
-    const { posts } = this.props;
+    const { posts, searchQuery } = this.props;
+    const metaText = `Search result for "${searchQuery}"`;
     return (
-      <PostList posts={ posts } />
+      <MetaPage title={ metaText } description={ metaText }>
+        <PostList posts={ posts } />
+      </MetaPage>
     );
   }
 }

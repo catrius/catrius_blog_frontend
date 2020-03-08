@@ -2,7 +2,7 @@ import moment from 'moment';
 import { get } from 'lodash';
 
 import { categoryUrl, postUrl } from 'utils/urls';
-import { publicUrl } from 'utils/common';
+import { publicUrl } from 'utils/axios-suffixes';
 
 
 export const transformPostCategory = category => ({
