@@ -1,11 +1,17 @@
 import { arrayOf, number, shape, string } from 'prop-types';
 
+
+// Environments
+export const ENVIRONMENT = process.env.ENVIRONMENT;
+export const DEV = 'dev';
+export const PRODUCTION = 'production';
+
 // Website meta
 export const WEB_NAME = 'Catri.us';
 export const WEB_DESCRIPTION= 'A blog by Thang Pham, where I can freely express myself.';
 
 // API URLs
-export const BASE_API_URL = 'http://localhost:8000';
+export const API_URL = ENVIRONMENT === PRODUCTION ? 'http://api.catri.us' : 'http://localhost:8000';
 export const POSTS_API_URL = '/blog/posts/';
 export const CATEGORIES_API_URL = '/blog/categories/';
 
