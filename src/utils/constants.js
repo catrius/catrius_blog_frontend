@@ -2,8 +2,8 @@ import { arrayOf, number, shape, string } from 'prop-types';
 
 
 // Environments
-export const ENVIRONMENT = process.env.ENVIRONMENT;
-export const DEV = 'dev';
+export const ENVIRONMENT = process.env.NODE_ENV;
+export const DEVELOPMENT = 'development';
 export const PRODUCTION = 'production';
 
 // Website meta
