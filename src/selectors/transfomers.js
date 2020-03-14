@@ -22,6 +22,8 @@ export const transformPost = post => {
     excerpt: get(post, 'excerpt', ''),
     content: get(post, 'content', ''),
     thumbnail: get(post, 'thumbnail', publicUrl('assets/default-thumbnail.jpg')),
+    caption: get(post, 'caption', ''),
+    imageShowing: get(post, 'image_showing', true),
     category: transformPostCategory(get(post, 'category', {})),
     url: postUrl(get(post, 'pk')),
   };

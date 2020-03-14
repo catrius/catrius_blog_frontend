@@ -1,4 +1,4 @@
-import { arrayOf, number, shape, string } from 'prop-types';
+import { arrayOf, number, shape, string, bool } from 'prop-types';
 
 
 // Environments
@@ -33,6 +33,8 @@ export const POST_SHAPE = {
   shortDate: string,
   excerpt: string,
   thumbnail: string,
+  caption: string,
+  imageShowing: bool,
   url: string,
   category: shape({
     pk: number,

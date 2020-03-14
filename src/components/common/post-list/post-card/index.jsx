@@ -23,15 +23,15 @@ export default function PostCard(props) {
           <Dotdotdot clamp={ 2 }>{ title }</Dotdotdot>
         </div>
         <div className={ styles['meta'] }>
-            <span className={ styles['category'] }>
-            <i className={ cx('far fa-folder', styles['category-icon']) }/>{ category.name }
+          <span className={ styles['category'] }>
+            <i className={ cx('far fa-folder', styles['icon']) }/>{ category.name }
           </span>
           <div className={ styles['date'] }>
-            <i className={ cx('far fa-calendar-alt', styles['calendar-icon']) }/>{ shortDate }
+            <i className={ cx('far fa-calendar-alt', styles['icon']) }/>{ shortDate }
           </div>
         </div>
         <div className={ styles['content'] }>
-          <Dotdotdot clamp={ 6 }>{ excerpt }</Dotdotdot>
+          <Dotdotdot clamp={ 3 }>{ excerpt }</Dotdotdot>
         </div>
       </div>
     </Link>

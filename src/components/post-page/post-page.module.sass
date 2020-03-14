@@ -12,34 +12,41 @@
     line-height: 1.2
     font-family: $play-fair
 
+  .thumbnail
+    display: block
+
+  .thumbnail-image
+    max-width: 100%
+    max-height: 270px
+    display: block
+    margin: 0 auto
+
+  .caption
+    text-align: center
+    color: $america-river
+    font-size: 13px
+
   .meta
     display: flex
-    justify-content: space-between
+    justify-content: left
     align-items: center
     margin-bottom: 30px
 
-  .category
-    display: inline-block
-    text-align: center
-    padding: 0 20px
-    font-size: 12px
-    color: $black
-    font-family: $open-sans
-    font-weight: 500
-    line-height: 28px
-    background: $lynx-white
-    margin-right: 10px
-    text-transform: uppercase
+    .icon
+      margin-right: 10px
 
-    &:hover
-      background: $black
-      color: $white
+    .category
+      display: inline-block
+      color: $black
+      margin-right: 10px
 
-  .date
-    display: inline-block
-    float: right
-    font-size: 12px
-    color: $black
+      &:hover
+        color: $belize-hole
+
+    .date
+      display: inline-block
+      float: right
+      color: $black
 
   .content
     white-space: pre-line

@@ -8,6 +8,7 @@ import styles from './post-page.module.sass';
 
 import { POST_SHAPE } from 'utils/constants';
 import MetaPage from 'components/common/meta-page';
+import cx from 'classnames';
 
 
 export default class PostPage extends Component {
@@ -27,15 +28,27 @@ export default class PostPage extends Component {
 
   render() {
     const { post } = this.props;
-    const { title, date, category, content, excerpt } = post;
+    const { title, date, category, content, excerpt, thumbnail, caption, imageShowing } = post;
     return (
       <MetaPage title={ title } description={ excerpt }>
         <div className={ styles['post-page'] }>
           <h4 className={ styles['title'] }>{ title }</h4>
           <div className={ styles['meta'] }>
-            <Link to={ category.url } className={ styles['category'] }>{ category.name }</Link>
-            <span className={ styles['date'] }>{ date }</span>
+            <Link to={ category.url } className={ styles['category'] }>
+              <i className={ cx('far fa-folder', styles['icon']) }/>{ category.name }
+            </Link>
+            <div className={ styles['date'] }>
+              <i className={ cx('far fa-calendar-alt', styles['icon']) }/>{ date }
+            </div>
           </div>
+          {
+            imageShowing ? (
+              <div className={ styles['thumbnail'] }>
+                <img className={ styles['thumbnail-image'] } src={ thumbnail } alt=''/>
+                <div className={ styles['caption'] }>{ caption }</div>
+              </div>
+            ) : null
+          }
           <ReactMarkdown className={ styles['content'] } source={ content }/>
         </div>
       </MetaPage>
