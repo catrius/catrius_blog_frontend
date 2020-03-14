@@ -2,7 +2,6 @@ import moment from 'moment';
 import { get } from 'lodash';
 
 import { categoryUrl, postUrl } from 'utils/urls';
-import { publicUrl } from 'utils/axios-suffixes';
 
 
 export const transformPostCategory = category => ({
@@ -21,7 +20,7 @@ export const transformPost = post => {
     shortDate: momentCreated && momentCreated.format('ll'),
     excerpt: get(post, 'excerpt', ''),
     content: get(post, 'content', ''),
-    thumbnail: get(post, 'thumbnail', publicUrl('assets/default-thumbnail.jpg')),
+    thumbnail: get(post, 'thumbnail', ''),
     caption: get(post, 'caption', ''),
     imageShowing: get(post, 'image_showing', true),
     category: transformPostCategory(get(post, 'category', {})),
