@@ -3,15 +3,25 @@ import { bool, func, number, shape } from 'prop-types';
 import { Link } from 'react-router-dom';
 import { isNil } from 'lodash';
 import ReactMarkdown from 'react-markdown';
+import cx from 'classnames';
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css';
 
 import styles from './post-page.module.sass';
 
 import { POST_SHAPE } from 'utils/constants';
 import MetaPage from 'components/common/meta-page';
-import cx from 'classnames';
 
 
 export default class PostPage extends Component {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+      lightboxOpen: false,
+    };
+  }
+
   componentDidMount() {
     const { fetchPost, pk, fetchedPost } = this.props;
     window.scroll(0, 0);
@@ -26,8 +36,11 @@ export default class PostPage extends Component {
     }
   }
 
+  triggerLightBox = (state) => this.setState({ lightboxOpen: state });
+
   render() {
     const { post } = this.props;
+    const { lightboxOpen } = this.state;
     const { title, date, category, content, excerpt, thumbnail, caption, imageShowing } = post;
     return (
       <MetaPage title={ title } description={ excerpt }>
@@ -43,10 +56,20 @@ export default class PostPage extends Component {
           </div>
           {
             imageShowing ? (
-              <div className={ styles['thumbnail'] }>
+              <div className={ styles['thumbnail'] } onClick={ () => this.triggerLightBox(true) }>
                 <img className={ styles['thumbnail-image'] } src={ thumbnail } alt=''/>
                 <div className={ styles['caption'] }>{ caption }</div>
               </div>
+            ) : null
+          }
+          {
+            lightboxOpen ? (
+              <Lightbox
+                mainSrc={ thumbnail }
+                onCloseRequest={ () => this.triggerLightBox(false) }
+                enableZoom={ false }
+                animationDuration={ 0 }
+              />
             ) : null
           }
           <ReactMarkdown className={ styles['content'] } source={ content }/>
