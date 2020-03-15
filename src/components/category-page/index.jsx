@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { arrayOf, func, number, shape } from 'prop-types';
+import { arrayOf, func, number, shape, string } from 'prop-types';
+import { isEqual } from 'lodash';
 
 import { CATEGORY_SHAPE, POST_SHAPE } from 'utils/constants';
 import PostList from 'components/common/post-list';
@@ -8,8 +9,8 @@ import MetaPage from 'components/common/meta-page';
 
 export default class CategoryPage extends Component {
   fetch() {
-    const { fetchPosts, pk, page } = this.props;
-    fetchPosts({ category: pk, page });
+    const { fetchPosts, slug, page } = this.props;
+    fetchPosts({ category: slug, page });
   }
 
   componentDidMount() {
@@ -17,8 +18,8 @@ export default class CategoryPage extends Component {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    const { pk, page } = this.props;
-    (pk !== prevProps.pk || prevProps.page !== page) && this.fetch();
+    const { slug, page } = this.props;
+    (!isEqual(slug, prevProps.slug) || prevProps.page !== page) && this.fetch();
   }
 
   render() {
@@ -33,7 +34,7 @@ export default class CategoryPage extends Component {
 
 CategoryPage.propTypes = {
   fetchPosts: func,
-  pk: number,
+  slug: string,
   page: number,
   posts: arrayOf(shape(POST_SHAPE)),
   category: shape(CATEGORY_SHAPE),

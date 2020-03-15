@@ -2,7 +2,7 @@ import { createSelector } from '@reduxjs/toolkit';
 import { find, get, isEmpty, map } from 'lodash';
 
 import { transformPost } from 'selectors/transfomers';
-import { getPK } from 'selectors/router';
+import { getSlug } from 'selectors/router';
 
 
 export const getPosts = state => get(state, 'posts');
@@ -14,13 +14,13 @@ export const postsSelector = createSelector(
 );
 
 export const postSelector = createSelector(
-  getPK,
+  getSlug,
   getPosts,
-  (pk, posts) => transformPost(find(posts, { pk })),
+  (slug, posts) => transformPost(find(posts, { slug })),
 );
 
 export const fetchedPostSelector = createSelector(
-  getPK,
+  getSlug,
   getPosts,
-  (pk, posts) => !isEmpty(find(posts, { pk })),
+  (slug, posts) => !isEmpty(find(posts, { slug })),
 );

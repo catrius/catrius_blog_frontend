@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { map } from 'lodash';
-import { arrayOf, bool, func, shape, number, object, string } from 'prop-types';
+import { arrayOf, bool, func, shape, object, string } from 'prop-types';
 import { Link } from 'react-router-dom';
 import cx from 'classnames';
 
@@ -48,7 +48,7 @@ export default class Navbar extends Component {
   toggleSearch = () => this.setState({ searchShowing: !this.state.searchShowing });
 
   render() {
-    const { categories, pk } = this.props;
+    const { categories, slug } = this.props;
     const device = this.context;
 
     return (
@@ -59,8 +59,8 @@ export default class Navbar extends Component {
               map(categories, category => (
                 <Link
                   to={ category.url }
-                  className={ cx(styles['category'], { [styles['current']]: pk === category.pk }) }
-                  key={ category.pk }>
+                  className={ cx(styles['category'], { [styles['current']]: slug === category.slug }) }
+                  key={ category.slug }>
                   { category.name }
                 </Link>
               ))
@@ -103,7 +103,7 @@ Navbar.propTypes = {
   categories: arrayOf(shape(CATEGORY_SHAPE)),
   fetchCategories: func,
   fetchedCategories: bool,
-  pk: number,
+  slug: string,
   history: object,
   searchQuery: string,
 };

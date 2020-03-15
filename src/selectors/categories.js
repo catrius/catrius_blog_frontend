@@ -2,7 +2,7 @@ import { createSelector } from '@reduxjs/toolkit';
 import { find, get, isEmpty, map } from 'lodash';
 
 import { transformCategory } from 'selectors/transfomers';
-import { getPK } from 'selectors/router';
+import { getSlug } from 'selectors/router';
 
 
 const getCategories = state => get(state, 'categories');
@@ -19,7 +19,7 @@ export const fetchedCategoriesSelector = createSelector(
 );
 
 export const categorySelector = createSelector(
-  getPK,
+  getSlug,
   getCategories,
-  (pk, categories) => transformCategory(find(categories, { pk })),
+  (slug, categories) => transformCategory(find(categories, { slug })),
 );

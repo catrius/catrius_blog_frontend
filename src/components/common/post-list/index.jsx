@@ -23,7 +23,7 @@ export default function PostList(props) {
         {
           map(posts, post => (
             <PostCard
-              key={ post.pk }
+              key={ post.slug }
               { ...post }
             />
           ))

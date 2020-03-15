@@ -3,18 +3,18 @@ import { withRouter } from 'react-router-dom';
 
 import { fetchPost } from 'actions/fetch-data';
 import PostPage from 'components/post-page';
-import { getPK } from 'selectors/router';
+import { getSlug } from 'selectors/router';
 import { fetchedPostSelector, postSelector } from 'selectors/posts';
 
 
 const mapStateToProps = (state, ownProps) => ({
   post: postSelector(state, ownProps),
-  pk: getPK(state, ownProps),
+  slug: getSlug(state, ownProps),
   fetchedPost: fetchedPostSelector(state, ownProps),
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchPost: pk => dispatch(fetchPost(pk)()),
+  fetchPost: slug => dispatch(fetchPost(slug)()),
 });
 
 const PostPageContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(PostPage));

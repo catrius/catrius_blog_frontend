@@ -5,16 +5,16 @@ import { categoryUrl, postUrl } from 'utils/urls';
 
 
 export const transformPostCategory = category => ({
-  pk: get(category, 'pk'),
+  slug: get(category, 'slug', ''),
   name: get(category, 'name', ''),
-  url: categoryUrl(get(category, 'pk')),
+  url: categoryUrl(get(category, 'slug')),
 });
 
 export const transformPost = post => {
   const created = get(post, 'created');
   const momentCreated = created && moment(created);
   return {
-    pk: get(post, 'pk'),
+    slug: get(post, 'slug', ''),
     title: get(post, 'title', ''),
     date: momentCreated && momentCreated.format('LLL'),
     shortDate: momentCreated && momentCreated.format('ll'),
@@ -24,14 +24,14 @@ export const transformPost = post => {
     caption: get(post, 'caption', ''),
     imageShowing: get(post, 'image_showing', true),
     category: transformPostCategory(get(post, 'category', {})),
-    url: postUrl(get(post, 'pk')),
+    url: postUrl(get(post, 'slug')),
   };
 };
 
 export const transformCategory = category => ({
-  pk: get(category, 'pk'),
+  slug: get(category, 'slug', ''),
   name: get(category, 'name', ''),
   description: get(category, 'description', ''),
   postCount: get(category, 'post_count', null),
-  url: categoryUrl(get(category, 'pk', '')),
+  url: categoryUrl(get(category, 'slug', '')),
 });

@@ -16,8 +16,8 @@ export const POSTS_API_URL = '/blog/posts/';
 export const CATEGORIES_API_URL = '/blog/categories/';
 
 // Routes
-export const POST_ROUTER = '/post/:pk/';
-export const CATEGORY_ROUTER = '/category/:pk/';
+export const POST_ROUTER = '/post/:slug/';
+export const CATEGORY_ROUTER = '/category/:slug/';
 export const SEARCH_ROUTER = '/search/';
 
 // Actions
@@ -27,7 +27,7 @@ export const FETCH_CATEGORIES = 'FETCH_CATEGORIES';
 
 // Shapes
 export const POST_SHAPE = {
-  pk: number,
+  slug: string,
   title: string,
   date: string,
   shortDate: string,
@@ -37,14 +37,14 @@ export const POST_SHAPE = {
   imageShowing: bool,
   url: string,
   category: shape({
-    pk: number,
+    slug: string,
     title: string,
     url: string,
   }),
 };
 
 export const CATEGORY_SHAPE = {
-  pk: number,
+  slug: string,
   name: string,
   description: string,
   postCount: number,

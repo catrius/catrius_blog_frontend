@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { bool, func, number, shape } from 'prop-types';
+import { bool, func, string, shape } from 'prop-types';
 import { Link } from 'react-router-dom';
-import { isNil } from 'lodash';
+import { isEqual } from 'lodash';
 import ReactMarkdown from 'react-markdown';
 import cx from 'classnames';
 import Lightbox from 'react-image-lightbox';
@@ -23,16 +23,16 @@ export default class PostPage extends Component {
   }
 
   componentDidMount() {
-    const { fetchPost, pk, fetchedPost } = this.props;
+    const { fetchPost, slug, fetchedPost } = this.props;
     window.scroll(0, 0);
 
-    !fetchedPost && fetchPost(pk);
+    !fetchedPost && fetchPost(slug);
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    const { fetchPost, pk, fetchedPost } = this.props;
-    if (!isNil(pk) && pk !== prevProps.pk) {
-      fetchedPost && fetchPost(pk);
+    const { fetchPost, slug, fetchedPost } = this.props;
+    if (!isEqual(slug, prevProps.slug)) {
+      fetchedPost && fetchPost(slug);
     }
   }
 
@@ -80,7 +80,7 @@ export default class PostPage extends Component {
 }
 
 PostPage.propTypes = {
-  pk: number,
+  slug: string,
   fetchPost: func,
   fetchedPost: bool,
   post: shape(POST_SHAPE),

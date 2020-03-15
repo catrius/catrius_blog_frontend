@@ -4,13 +4,13 @@ import { withRouter } from 'react-router-dom';
 import { fetchPosts } from 'actions/fetch-data';
 import CategoryPage from 'components/category-page';
 import { postsSelector } from 'selectors/posts';
-import { getPage, getPK } from 'selectors/router';
+import { getPage, getSlug } from 'selectors/router';
 import { categorySelector } from 'selectors/categories';
 
 
 const mapStateToProps = (state, ownProps) => ({
   posts: postsSelector(state),
-  pk: getPK(state, ownProps),
+  slug: getSlug(state, ownProps),
   page: getPage(state, ownProps),
   category: categorySelector(state, ownProps),
 });
