@@ -39,11 +39,11 @@ export default class PostPage extends Component {
   triggerLightBox = (state) => this.setState({ lightboxOpen: state });
 
   render() {
-    const { post } = this.props;
+    const { post, fetchState } = this.props;
     const { lightboxOpen } = this.state;
     const { title, date, category, content, excerpt, thumbnail, caption, imageShowing } = post;
     return (
-      <MetaPage title={ title } description={ excerpt }>
+      <MetaPage fetchState={ fetchState } title={ title } description={ excerpt }>
         <div className={ styles['post-page'] }>
           <h4 className={ styles['title'] }>{ title }</h4>
           <div className={ styles['meta'] }>
@@ -82,6 +82,7 @@ export default class PostPage extends Component {
 PostPage.propTypes = {
   slug: string,
   fetchPost: func,
+  fetchState: string,
   fetchedPost: bool,
   post: shape(POST_SHAPE),
 };

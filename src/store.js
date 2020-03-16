@@ -9,7 +9,6 @@ import { API_URL } from 'utils/constants';
 
 export const history = createBrowserHistory();
 
-
 const client = axios.create({
   baseURL: API_URL,
   responseType: 'json',

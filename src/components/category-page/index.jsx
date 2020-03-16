@@ -23,9 +23,9 @@ export default class CategoryPage extends Component {
   }
 
   render() {
-    const { posts, category } = this.props;
+    const { fetchState, posts, category } = this.props;
     return (
-      <MetaPage title={ category.name } description={ category.description }>
+      <MetaPage fetchState={ fetchState } title={ category.name } description={ category.description }>
         <PostList posts={ posts } />
       </MetaPage>
     );
@@ -34,6 +34,7 @@ export default class CategoryPage extends Component {
 
 CategoryPage.propTypes = {
   fetchPosts: func,
+  fetchState: string,
   slug: string,
   page: number,
   posts: arrayOf(shape(POST_SHAPE)),

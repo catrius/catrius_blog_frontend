@@ -4,6 +4,7 @@ import { combineReducers } from 'redux';
 import posts from 'reducers/posts';
 import categories from 'reducers/categories';
 import paginator from 'reducers/paginator';
+import fetchState from 'reducers/fetch-state';
 
 
 const rootReducer = history => combineReducers({
@@ -11,6 +12,7 @@ const rootReducer = history => combineReducers({
   posts,
   categories,
   paginator,
+  fetchState
 });
 
 export default rootReducer;

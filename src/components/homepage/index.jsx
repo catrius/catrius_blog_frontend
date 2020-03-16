@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { arrayOf, func, number, shape } from 'prop-types';
+import { arrayOf, func, number, shape, string } from 'prop-types';
 
 import { POST_SHAPE } from 'utils/constants';
 import PostList from 'components/common/post-list';
@@ -22,9 +22,9 @@ export default class Homepage extends Component {
   }
 
   render() {
-    const { posts } = this.props;
+    const { fetchState, posts } = this.props;
     return (
-      <MetaPage>
+      <MetaPage fetchState={ fetchState }>
         <PostList posts={ posts } />
       </MetaPage>
     );
@@ -33,6 +33,7 @@ export default class Homepage extends Component {
 
 Homepage.propTypes = {
   fetchPosts: func,
+  fetchState: string,
   page: number,
   posts: arrayOf(shape(POST_SHAPE)),
 };

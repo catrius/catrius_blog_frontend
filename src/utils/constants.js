@@ -20,10 +20,18 @@ export const POST_ROUTER = '/post/:slug/';
 export const CATEGORY_ROUTER = '/category/:slug/';
 export const SEARCH_ROUTER = '/search/';
 
-// Actions
+// Fetch states
+export const REQUEST = 'REQUEST';
+export const SUCCESS = 'SUCCESS';
+export const FAIL = 'FAIL';
+
+// Fetch actions
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const FETCH_POST = 'FETCH_POST';
 export const FETCH_CATEGORIES = 'FETCH_CATEGORIES';
+
+// Other actions
+export const RESET_FETCH_STATE = 'RESET_FETCH_STATE';
 
 // Shapes
 export const POST_SHAPE = {

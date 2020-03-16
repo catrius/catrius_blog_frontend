@@ -1,6 +1,6 @@
 import React, { Fragment, useContext } from 'react';
 import { arrayOf, shape } from 'prop-types';
-import { map, isEmpty } from 'lodash';
+import { map } from 'lodash';
 import cx from 'classnames';
 
 import styles from './post-list.module.sass';
@@ -15,9 +15,7 @@ export default function PostList(props) {
   const device = useContext(DeviceContext);
   const { posts } = props;
 
-  return isEmpty(posts) ? (
-    <h1 className={ styles['empty-post-list'] }>Nothing to see here</h1>
-  ) : (
+  return (
     <Fragment>
       <div className={ cx(styles['post-list'], styles[RESPONSIVE_CLASS_NAMES[device]]) }>
         {

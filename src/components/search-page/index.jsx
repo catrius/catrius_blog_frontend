@@ -22,10 +22,10 @@ export default class SearchPage extends Component {
   }
 
   render() {
-    const { posts, searchQuery } = this.props;
+    const { fetchState, posts, searchQuery } = this.props;
     const metaText = `Search result for "${searchQuery}"`;
     return (
-      <MetaPage title={ metaText } description={ metaText }>
+      <MetaPage fetchState={ fetchState } title={ metaText } description={ metaText }>
         <PostList posts={ posts } />
       </MetaPage>
     );
@@ -34,6 +34,7 @@ export default class SearchPage extends Component {
 
 SearchPage.propTypes = {
   fetchPosts: func,
+  fetchState: string,
   page: number,
   searchQuery: string,
   posts: arrayOf(shape(POST_SHAPE)),
