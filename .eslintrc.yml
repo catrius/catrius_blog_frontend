@@ -54,6 +54,10 @@ rules:
     - error
     - max: 2
       maxEOF: 0
+  arrow-spacing:
+    - error
+    - before: true
+      after: true
   import/newline-after-import:
     - error
     - count: 2

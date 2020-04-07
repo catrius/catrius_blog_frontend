@@ -15,6 +15,7 @@
     "eslint-import-resolver-webpack": "^0.12.1",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-react": "^7.18.3",
+    "faker": "^4.1.0",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "node-sass": "^4.13.0",
@@ -33,7 +34,9 @@
     "react-scripts": "3.3.0",
     "react-spinners": "^0.8.1",
     "redux": "^4.0.5",
-    "redux-axios-middleware": "^4.0.1"
+    "redux-axios-middleware": "^4.0.1",
+    "rosie": "^2.0.1",
+    "slugify": "^1.4.0"
   },
   "scripts": {
     "start": "react-scripts start",

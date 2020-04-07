@@ -1,4 +1,4 @@
-import { arrayOf, number, shape, string, bool } from 'prop-types';
+import { arrayOf, shape, string, bool } from 'prop-types';
 
 
 // Environments

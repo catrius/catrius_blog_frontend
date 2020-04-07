@@ -5,7 +5,7 @@ import { transformCategory } from 'selectors/transfomers';
 import { getSlug } from 'selectors/router-selectors';
 
 
-const getCategories = state => get(state, 'categories');
+export const getCategories = state => get(state, 'categories');
 
 
 export const categoriesSelector = createSelector(
