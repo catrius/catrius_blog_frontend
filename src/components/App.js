@@ -5,7 +5,7 @@ import { useMediaQuery } from 'react-responsive';
 import cx from 'classnames';
 import { HelmetProvider } from 'react-helmet-async';
 
-import NavbarContainer from 'containers/navbar';
+import NavbarContainer from 'containers/navbar-container';
 import styles from 'components/App.module.sass';
 import Footer from 'components/footer';
 import Router from 'components/router';

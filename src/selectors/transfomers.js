@@ -32,6 +32,5 @@ export const transformCategory = category => ({
   slug: get(category, 'slug', ''),
   name: get(category, 'name', ''),
   description: get(category, 'description', ''),
-  postCount: get(category, 'post_count', null),
   url: categoryUrl(get(category, 'slug', '')),
 });

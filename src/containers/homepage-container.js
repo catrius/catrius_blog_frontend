@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import { fetchPosts } from 'actions/fetch-data';
+import { fetchPosts } from 'actions/fetch-data-actions';
 import Homepage from 'components/homepage';
-import { postsSelector } from 'selectors/posts';
-import { getPage } from 'selectors/router';
-import { getFetchState } from 'selectors/fetch-state';
+import { postsSelector } from 'selectors/posts-selectors';
+import { getPage } from 'selectors/router-selectors';
+import { getFetchState } from 'selectors/fetch-state-selectors';
 
 
 const mapStateToProps = (state, ownProps) => ({

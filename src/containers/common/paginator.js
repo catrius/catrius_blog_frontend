@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import { getPageCount } from 'selectors/paginator';
+import { getPageCount } from 'selectors/paginator-selectors';
 import Paginator from 'components/common/paginator';
-import { getPage } from 'selectors/router';
+import { getPage } from 'selectors/router-selectors';
 
 
 const mapStateToProps = (state, ownProps) => ({

@@ -55,7 +55,6 @@ export const CATEGORY_SHAPE = {
   slug: string,
   name: string,
   description: string,
-  postCount: number,
   url: string,
   posts: arrayOf(shape(POST_SHAPE)),
 };

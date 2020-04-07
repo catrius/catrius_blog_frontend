@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import { fetchPosts } from 'actions/fetch-data';
+import { fetchPosts } from 'actions/fetch-data-actions';
 import CategoryPage from 'components/category-page';
-import { postsSelector } from 'selectors/posts';
-import { getPage, getSlug } from 'selectors/router';
-import { categorySelector } from 'selectors/categories';
-import { getFetchState } from 'selectors/fetch-state';
+import { postsSelector } from 'selectors/posts-selectors';
+import { getPage, getSlug } from 'selectors/router-selectors';
+import { categorySelector } from 'selectors/categories-selectors';
+import { getFetchState } from 'selectors/fetch-state-selectors';
 
 
 const mapStateToProps = (state, ownProps) => ({

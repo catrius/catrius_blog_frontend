@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import { fetchCategories } from 'actions/fetch-data';
+import { fetchCategories } from 'actions/fetch-data-actions';
 import Navbar from 'components/navbar';
-import { categoriesSelector, fetchedCategoriesSelector } from 'selectors/categories';
-import { getCategorySlug, getSearchQuery } from 'selectors/router';
+import { categoriesSelector, fetchedCategoriesSelector } from 'selectors/categories-selectors';
+import { getCategorySlug, getSearchQuery } from 'selectors/router-selectors';
 
 
 const mapStateToProps = (state, ownProps) => ({

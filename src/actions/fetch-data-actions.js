@@ -1,4 +1,4 @@
-import { get } from 'actions/axios-requests';
+import { get } from 'actions/axios-requests-actions';
 import {
   POSTS_API_URL,
   FETCH_POSTS,
