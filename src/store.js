@@ -4,7 +4,7 @@ import { createBrowserHistory } from 'history';
 import axiosMiddleware from 'redux-axios-middleware';
 
 import rootReducer from 'reducers/root-reducer';
-import { API_URL } from 'utils/constants';
+import { API_URL, ENVIRONMENT, PRODUCTION } from 'utils/constants';
 
 
 export const history = createBrowserHistory();
@@ -22,7 +22,7 @@ const store = configureStore({
       serializableCheck: false,
     }),
   ],
-  devTools: true,
+  devTools: ENVIRONMENT !== PRODUCTION,
 });
 
 export default store;
