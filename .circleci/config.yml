@@ -1,0 +1,46 @@
+version: 2.1
+
+executors:
+  default:
+    docker:
+      - image: circleci/node
+
+jobs:
+  test:
+    executor: default
+    steps:
+      - checkout
+      - run:
+          command: yarn install
+          name: Install dependencies
+      - run:
+          command: yarn lint
+          name: Eslint
+      - run:
+          command: CI=true yarn test:ci
+          name: Test
+      - run:
+          command: bash <(curl -s https://codecov.io/bash)
+          name: Upload coverage report to Codecov
+  deploy:
+    executor: default
+    steps:
+      - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "91:4b:cf:4c:26:fc:43:e0:cc:96:41:d4:ea:cc:2d:65"
+      - run:
+          command: ssh -o 'StrictHostKeyChecking no' ubuntu@13.251.91.7 'bash -li' < scripts/deploy.sh
+          name: Deploy to EC2
+
+workflows:
+  test-deploy:
+    jobs:
+      - test
+      - deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only:
+                - master
