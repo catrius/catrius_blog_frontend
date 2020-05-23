@@ -4,10 +4,11 @@ import { get } from 'lodash';
 import { categoryUrl, postUrl } from 'utils/urls';
 
 
-export const transformPostCategory = category => ({
+export const transformCategory = category => ({
   slug: get(category, 'slug', ''),
   name: get(category, 'name', ''),
-  url: categoryUrl(get(category, 'slug')),
+  description: get(category, 'description', ''),
+  url: categoryUrl(get(category, 'slug', '')),
 });
 
 export const transformPost = post => {
@@ -23,14 +24,7 @@ export const transformPost = post => {
     thumbnail: get(post, 'thumbnail', ''),
     caption: get(post, 'caption', ''),
     imageShowing: get(post, 'image_showing', true),
-    category: transformPostCategory(get(post, 'category', {})),
+    category: transformCategory(get(post, 'category', {})),
     url: postUrl(get(post, 'slug')),
   };
 };
-
-export const transformCategory = category => ({
-  slug: get(category, 'slug', ''),
-  name: get(category, 'name', ''),
-  description: get(category, 'description', ''),
-  url: categoryUrl(get(category, 'slug', '')),
-});

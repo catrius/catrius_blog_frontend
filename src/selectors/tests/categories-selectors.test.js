@@ -7,19 +7,12 @@ import {
   getCategories,
 } from 'selectors/categories-selectors';
 import CategoryFactory from 'factories/category-factory';
+import { transformCategory } from 'selectors/transfomers';
 
 
 let rawCategories;
 let state;
 
-const assertCategory = (category, rawCategory) => {
-  expect(category).toEqual({
-    slug: rawCategory.slug,
-    name: rawCategory.name,
-    description: rawCategory.description,
-    url: `/category/${ rawCategory.slug }/`,
-  });
-};
 
 beforeAll(() => {
   rawCategories = CategoryFactory.buildList(3);
@@ -33,7 +26,7 @@ describe('getCategories', () => {
     const categories = getCategories(state);
 
     expect(categories).toHaveLength(3);
-    expect(categories).toEqual(state.categories);
+    expect(categories).toEqual(rawCategories);
   });
 });
 
@@ -42,11 +35,11 @@ describe('categoriesSelector', () => {
     const categories = categoriesSelector(state);
 
     expect(categories).toHaveLength(3);
-    each(categories, (category, index) => assertCategory(category, rawCategories[index]));
+    each(categories, (category, index) => expect(category).toEqual(transformCategory(rawCategories[index])));
   });
 });
 
-describe('getCategories', () => {
+describe('fetchedCategoriesSelector', () => {
   it('should return whether categories is fetched or not', () => {
     expect(fetchedCategoriesSelector(state)).toBe(true);
     expect(fetchedCategoriesSelector({ categories: [] })).toBe(false);
@@ -63,7 +56,7 @@ describe('categorySelector', () => {
           },
         },
       };
-      assertCategory(categorySelector(state, props), rawCategory);
+      expect(categorySelector(state, props)).toEqual(transformCategory(rawCategory));
     });
   });
 });

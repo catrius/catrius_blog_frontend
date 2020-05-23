@@ -4,19 +4,18 @@ import { createSelector } from '@reduxjs/toolkit';
 
 export const getSlug = (state, props) => get(props, 'match.params.slug', '');
 
+// This is for components that are not rendered by router.
 export const getCategorySlug = (state, props) => {
   const pathname = get(props, 'location.pathname', '');
-  const matched = pathname.match(/^\/category\/(\d+)/);
-  if (matched)
-    return matched[1];
-  return null;
+  const matched = pathname.match(/^\/category\/(.+)\/$/);
+  return matched ? matched[1] : null;
 };
 
-export const getQueryParams = (state, props) => new URLSearchParams(get(props, 'location.search', ''));
+const getQueryParams = (state, props) => new URLSearchParams(get(props, 'location.search', ''));
 
 export const getPage = createSelector(
   getQueryParams,
-  queryParams => queryParams.get('page') || 1,
+  queryParams => parseInt(queryParams.get('page')) || 1,
 );
 
 export const getSearchQuery = createSelector(
