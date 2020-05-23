@@ -8,17 +8,18 @@ import styles from './meta-page.module.sass';
 
 import { buildTitle } from 'utils/web-meta';
 import { FAIL, REQUEST, WEB_DESCRIPTION } from 'utils/constants';
+import commonStyles from 'styles/common.module.sass';
 
 
 export default function MetaPage(props) {
-  const { children, fetchState, title, description } = props;
+  const { children, fetchState, title, description, errorMessage } = props;
 
   const renderChildren = () => {
     if (fetchState === FAIL) {
       return (
-        <h1 className={ styles['empty-page'] }>
-          Nothing to see here <i className='far fa-dizzy' />
-        </h1>
+        <div className={ cx(styles['empty-page']) }>
+          <h1 className={ commonStyles['title'] }>{ errorMessage }</h1>
+        </div>
       );
     }
     if (fetchState === REQUEST) {
@@ -51,9 +52,11 @@ MetaPage.propTypes = {
   title: string,
   fetchState: string,
   description: string,
+  errorMessage: string,
 };
 
 MetaPage.defaultProps = {
   title: '',
   description: WEB_DESCRIPTION,
+  errorMessage: 'Nothing to see here',
 };

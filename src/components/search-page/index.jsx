@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { arrayOf, func, number, shape, string } from 'prop-types';
+import cx from 'classnames';
+import { isEmpty } from 'lodash';
 
-import { POST_SHAPE } from 'utils/constants';
+import styles from 'components/search-page/search-page.module.sass';
+import { FAIL, POST_SHAPE } from 'utils/constants';
 import PostList from 'components/common/post-list';
 import MetaPage from 'components/common/meta-page';
+import commonStyles from 'styles/common.module.sass';
 
 
 export default class SearchPage extends Component {
@@ -23,11 +27,17 @@ export default class SearchPage extends Component {
 
   render() {
     const { fetchState, posts, searchQuery } = this.props;
-    const metaText = `Search result for "${searchQuery}"`;
-    return (
-      <MetaPage fetchState={ fetchState } title={ metaText } description={ metaText }>
-        <PostList posts={ posts } />
+    const foundText = `Search results for "${ searchQuery }"`;
+    const notFoundText = `Nothing found for "${ searchQuery }"`;
+    return !isEmpty(posts) ? (
+      <MetaPage fetchState={ fetchState } title={ foundText } description={ foundText }>
+        <div className={ styles['search-page'] }>
+          <h1 className={ cx(commonStyles['title'], styles['title']) }>{ foundText }</h1>
+          <PostList posts={ posts }/>
+        </div>
       </MetaPage>
+    ) : (
+      <MetaPage fetchState={ FAIL } title={ notFoundText } description={ notFoundText } errorMessage={ notFoundText }/>
     );
   }
 }
