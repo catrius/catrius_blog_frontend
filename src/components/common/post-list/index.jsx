@@ -7,7 +7,7 @@ import styles from './post-list.module.sass';
 import PostCard from './post-card';
 
 import { POST_SHAPE, RESPONSIVE_CLASS_NAMES } from 'utils/constants';
-import PaginatorContainer from 'containers/common/paginator';
+import PaginatorContainer from 'containers/common/paginator-container';
 import { DeviceContext } from 'contexts';
 
 
