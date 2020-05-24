@@ -7,7 +7,7 @@ export const DEVELOPMENT = 'development';
 export const PRODUCTION = 'production';
 
 // Website meta
-export const WEB_NAME = 'Catri.us';
+export const WEB_NAME = 'Catrius';
 export const WEB_DESCRIPTION= 'A blog by Thang Pham, where I can freely express myself.';
 
 // API URLs
