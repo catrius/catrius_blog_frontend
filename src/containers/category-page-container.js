@@ -17,9 +17,9 @@ const mapStateToProps = (state, ownProps) => ({
   fetchState: getFetchState(state, ownProps).posts,
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchPosts: params => dispatch(fetchPosts(params)()),
-});
+const mapDispatchToProps = {
+  fetchPosts,
+};
 
 const CategoryPageContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(CategoryPage));
 

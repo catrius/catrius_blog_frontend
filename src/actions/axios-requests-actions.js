@@ -1,7 +1,7 @@
 import { createAction } from '@reduxjs/toolkit';
 
 
-const createAxiosAction = type => (action, url, params={}, configs={}) => createAction(
+const callAPI = type => (action, url, params={}, configs={}) => createAction(
   action,
   () => ({
     payload: {
@@ -13,7 +13,6 @@ const createAxiosAction = type => (action, url, params={}, configs={}) => create
       },
     },
   }),
-);
+)();
 
-export const get = createAxiosAction('get');
-export const post = createAxiosAction('post');
+export const get = callAPI('get');

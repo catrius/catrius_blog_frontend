@@ -15,9 +15,9 @@ const mapStateToProps = (state, ownProps) => ({
   fetchState: getFetchState(state, ownProps).post,
 });
 
-const mapDispatchToProps = dispatch => ({
-  fetchPost: slug => dispatch(fetchPost(slug)()),
-});
+const mapDispatchToProps = {
+  fetchPost,
+};
 
 const PostPageContainer = withRouter(connect(mapStateToProps, mapDispatchToProps)(PostPage));
 
