@@ -14,10 +14,10 @@ function Footer() {
       <div className={ styles['name'] }>{ WEB_NAME }</div>
       <div className={ styles['description'] }>{ WEB_DESCRIPTION }</div>
       <div className={ styles['social-media'] }>
-        <FacebookIcon className={ styles['icon'] } />
-        <GithubIcon className={ styles['icon'] } />
+        <FacebookIcon className={ styles['icon'] }/>
+        <GithubIcon className={ styles['icon'] }/>
       </div>
-       <div className={ styles['pages'] }>
+      <div className={ styles['pages'] }>
         <Link to='#' className={ styles['page'] }>About</Link>
         <Link to='#' className={ styles['page'] }>Contact</Link>
       </div>
