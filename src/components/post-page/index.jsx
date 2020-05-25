@@ -17,7 +17,7 @@ import commonStyles from 'styles/common.module.sass';
 export default class PostPage extends Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       lightboxOpen: false,
     };
@@ -46,7 +46,7 @@ export default class PostPage extends Component {
     return (
       <MetaPage fetchState={ fetchState } title={ title } description={ excerpt }>
         <div className={ styles['post-page'] }>
-          <h4 className={ cx(commonStyles['title']) }>{ title }</h4>
+          <h1 className={ cx(commonStyles['title']) }>{ title }</h1>
           <div className={ styles['meta'] }>
             <Link to={ category.url } className={ styles['category'] }>
               <i className={ cx('far fa-folder', styles['icon']) }/>{ category.name }

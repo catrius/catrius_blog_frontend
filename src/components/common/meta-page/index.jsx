@@ -14,35 +14,28 @@ import commonStyles from 'styles/common.module.sass';
 export default function MetaPage(props) {
   const { children, fetchState, title, description, errorMessage } = props;
 
-  const renderChildren = () => {
-    if (fetchState === FAIL) {
-      return (
-        <div className={ cx(styles['empty-page']) }>
-          <h1 className={ commonStyles['title'] }>{ errorMessage }</h1>
-        </div>
-      );
-    }
-    if (fetchState === REQUEST) {
-      return (
-        <div className={ cx(styles['empty-page'], styles['center']) }>
-          <DotLoader
-            color={ 'black' }
-            loading={ true }
-          />
-        </div>
-      );
-    } else {
-      return children;
-    }
-  };
-
   return (
     <Fragment>
       <Helmet>
         <title>{ buildTitle(title) }</title>
         <meta name='description' content={ description }/>
       </Helmet>
-      { renderChildren() }
+      {
+        fetchState === FAIL ? (
+          (
+            <div className={ cx(styles['empty-page']) }>
+              <h1 className={ commonStyles['title'] }>{ errorMessage }</h1>
+            </div>
+          )
+        ) : fetchState === REQUEST ? (
+          <div className={ cx(styles['empty-page'], styles['center']) }>
+            <DotLoader
+              color='black'
+              loading={ true }
+            />
+          </div>
+        ) : children
+      }
     </Fragment>
   );
 }
