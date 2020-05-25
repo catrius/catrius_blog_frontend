@@ -1,5 +1,5 @@
-import { shallow } from 'enzyme';
 import React from 'react';
+import { shallow } from 'enzyme';
 
 import BaseIcon from 'components/common/icons/base-icon';
 import FacebookIcon from 'components/common/icons/facebook-icon';

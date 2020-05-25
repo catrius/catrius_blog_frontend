@@ -1,5 +1,5 @@
-import { shallow } from 'enzyme';
 import React from 'react';
+import { shallow } from 'enzyme';
 import { Link } from 'react-router-dom';
 
 import { WEB_DESCRIPTION, WEB_NAME } from 'utils/constants';

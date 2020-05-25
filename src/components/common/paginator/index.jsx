@@ -13,6 +13,7 @@ export default function Paginator(props) {
   const { pageCount, page, history } = props;
   const device = useContext(DeviceContext);
   const handlePageChange = data => history.push(`?page=${ data.selected + 1 }`);
+  const hrefBuilder = pageIndex => `?page=${ pageIndex }`;
 
   return (
     <div
@@ -35,7 +36,7 @@ export default function Paginator(props) {
         previousLinkClassName={ styles['paginator-link'] }
         nextLinkClassName={ styles['paginator-link'] }
         breakLinkClassName={ styles['paginator-link'] }
-        hrefBuilder={ pageIndex => `?page=${ pageIndex }` }
+        hrefBuilder={ hrefBuilder }
       />
     </div>
   );
