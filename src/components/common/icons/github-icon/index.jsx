@@ -2,13 +2,13 @@ import React from 'react';
 import cx from 'classnames';
 import { string } from 'prop-types';
 
-import styles from './github.module.sass';
+import styles from './github-icon.module.sass';
 
 import { GITHUB_URL } from 'utils/constants';
-import BaseIcon from 'components/common/icons/BaseIcon';
+import BaseIcon from 'components/common/icons/base-icon';
 
 
-function Github(props) {
+function GithubIcon(props) {
   const { className } = props;
   return (
     <BaseIcon className={ cx(styles['github'], className) } href={ GITHUB_URL }>
@@ -17,8 +17,8 @@ function Github(props) {
   );
 }
 
-Github.propTypes = {
+GithubIcon.propTypes = {
   className: string,
 };
 
-export default Github;
+export default GithubIcon;
