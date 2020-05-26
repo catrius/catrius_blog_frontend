@@ -10,7 +10,7 @@ import { transformPost } from 'selectors/transfomers';
 const PostFactory = new Factory()
   .attr('category', () => CategoryFactory.build())
   .attr('title', faker.lorem.sentence)
-  .attr('slug', ['title'], (title) => slugify(title))
+  .sequence('slug', ['title'], (i, title) => `${slugify(title)}-i`)
   .attr('content', faker.lorem.text)
   .attr('excerpt', faker.lorem.text)
   .attr('thumbnail', ['slug'], slug => `/media/photos/post-${slug}.jpeg`)

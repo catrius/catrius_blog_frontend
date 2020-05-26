@@ -5,7 +5,7 @@ import slugify from 'slugify';
 
 const CategoryFactory = new Factory()
   .attr('name', faker.lorem.word)
-  .attr('slug', ['name'], name => slugify(name))
+  .sequence('slug', ['name'], (i, name) => `${slugify(name)}-i`)
   .attr('description', faker.lorem.sentence);
 
 export default CategoryFactory;
