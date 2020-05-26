@@ -67,6 +67,7 @@ export const GITHUB_URL = 'https://github.com/catrius';
 export const DESKTOP = 'DESKTOP';
 export const TABLET = 'TABLET';
 export const MOBILE = 'MOBILE';
+export const DEVICES = [DESKTOP, TABLET, MOBILE];
 
 // Device classname map
 export const RESPONSIVE_CLASS_NAMES = {
