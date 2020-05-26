@@ -8,8 +8,7 @@ import { Provider } from 'react-redux';
 
 import { DEVICES, RESPONSIVE_CLASS_NAMES } from 'utils/constants';
 import { mockDeviceContext } from 'test-utils';
-import PaginatorContainer from 'containers/common/paginator-container';
-import Paginator from 'components/common/paginator';
+import PaginatorContainer, { Paginator } from 'components/common/paginator-container';
 
 
 const mockStore = configureStore();
@@ -54,10 +53,10 @@ describe('PaginatorContainer', () => {
     expect(reactPaginate.prop('breakClassName')).toEqual('break');
     expect(reactPaginate.prop('disabledClassName')).toEqual('disabled');
     expect(reactPaginate.prop('activeClassName')).toEqual('active');
-    expect(reactPaginate.prop('pageLinkClassName')).toEqual('paginator-link');
-    expect(reactPaginate.prop('previousLinkClassName')).toEqual('paginator-link');
-    expect(reactPaginate.prop('nextLinkClassName')).toEqual('paginator-link');
-    expect(reactPaginate.prop('breakLinkClassName')).toEqual('paginator-link');
+    expect(reactPaginate.prop('pageLinkClassName')).toEqual('paginator-container-link');
+    expect(reactPaginate.prop('previousLinkClassName')).toEqual('paginator-container-link');
+    expect(reactPaginate.prop('nextLinkClassName')).toEqual('paginator-container-link');
+    expect(reactPaginate.prop('breakLinkClassName')).toEqual('paginator-container-link');
 
     const hrefBuilder = reactPaginate.prop('hrefBuilder');
     expect(hrefBuilder(page)).toEqual(`?page=${ page }`);

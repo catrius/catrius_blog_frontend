@@ -7,7 +7,7 @@ import { DEVICES, RESPONSIVE_CLASS_NAMES } from 'utils/constants';
 import PostCard from 'components/common/post-list/post-card';
 import { TransformedPostsFactory } from 'factories/post-factory';
 import PostList from 'components/common/post-list';
-import PaginatorContainer from 'containers/common/paginator-container';
+import PaginatorContainer from 'components/common/paginator-container';
 
 
 describe('PostCard', () => {
