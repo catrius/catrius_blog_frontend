@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { WEB_DESCRIPTION, WEB_NAME } from 'utils/constants';
 import GithubIcon from 'components/common/icons/github-icon';
-import Footer from 'components/footer/index';
+import Footer from 'components/footer';
 import FacebookIcon from 'components/common/icons/facebook-icon';
 import styles from 'components/footer/footer.module.sass';
 

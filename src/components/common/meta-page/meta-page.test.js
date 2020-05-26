@@ -4,7 +4,7 @@ import faker from 'faker';
 import { Helmet } from 'react-helmet-async';
 import { DotLoader } from 'react-spinners';
 
-import MetaPage from 'components/common/meta-page/index';
+import MetaPage from 'components/common/meta-page';
 import { buildTitle } from 'utils/web-meta';
 import { FAIL, REQUEST, SUCCESS } from 'utils/constants';
 

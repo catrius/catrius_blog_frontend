@@ -5,7 +5,7 @@ import Dotdotdot from 'react-dotdotdot';
 
 import { mockDeviceContext } from 'test-utils';
 import { DEVICES, RESPONSIVE_CLASS_NAMES } from 'utils/constants';
-import PostCard from 'components/common/post-list/post-card/index';
+import PostCard from 'components/common/post-list/post-card';
 import { TransformedPostFactory } from 'factories/post-factory';
 
 

@@ -6,7 +6,7 @@ import { DESKTOP, MOBILE, WEB_NAME } from 'utils/constants';
 import GithubIcon from 'components/common/icons/github-icon';
 import FacebookIcon from 'components/common/icons/facebook-icon';
 import styles from 'components/footer/footer.module.sass';
-import Header from 'components/header/index';
+import Header from 'components/header';
 import { mockDeviceContext } from 'test-utils';
 
 
