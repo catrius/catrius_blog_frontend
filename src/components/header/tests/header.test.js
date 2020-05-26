@@ -7,14 +7,12 @@ import GithubIcon from 'components/common/icons/github-icon';
 import FacebookIcon from 'components/common/icons/facebook-icon';
 import styles from 'components/footer/footer.module.sass';
 import Header from 'components/header/index';
-import { DeviceContext } from 'contexts';
+import { mockDeviceContext } from 'test-utils';
 
 
 describe('Header', () => {
   it('should render fully on desktop', () => {
-    jest.spyOn(ReactAll, 'useContext').mockImplementation(context => {
-      return context === DeviceContext ? DESKTOP : null;
-    });
+    mockDeviceContext(ReactAll, DESKTOP);
 
     const wrapper = shallow(
       <Header/>,
@@ -44,9 +42,7 @@ describe('Header', () => {
   });
 
   it('should only render logo on mobile', () => {
-    jest.spyOn(ReactAll, 'useContext').mockImplementation(context => {
-      return context === DeviceContext ? MOBILE : null;
-    });
+    mockDeviceContext(ReactAll, MOBILE);
 
     const wrapper = shallow(
       <Header/>,
