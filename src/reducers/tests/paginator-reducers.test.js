@@ -7,7 +7,7 @@ import paginator from 'reducers/paginator-reducers';
 
 describe('paginator', () => {
   it('should handle successfully(FETCH_POSTS)', () => {
-    const pageCount = faker.random.number(20);
+    const pageCount = faker.random.number({ min: 1, max: 20 });
     const action = {
       type: successfully(FETCH_POSTS),
       payload: {
