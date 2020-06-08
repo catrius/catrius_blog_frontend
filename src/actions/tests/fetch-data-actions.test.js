@@ -22,16 +22,13 @@ describe('fetchPosts', () => {
 
 describe('fetchPost', () => {
   it('should return FETCH_POST action', () => {
-    const params = {
-      slug: 'some-post',
-    };
-    expect(fetchPost(params)).toEqual({
+    expect(fetchPost('some-post')).toEqual({
       type: FETCH_POST,
       payload: {
         request: {
           method: 'get',
-          url: POSTS_API_URL,
-          params,
+          url: `${POSTS_API_URL}some-post`,
+          params: {},
         },
       },
     });
