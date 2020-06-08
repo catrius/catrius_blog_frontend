@@ -27,7 +27,7 @@ describe('fetchPost', () => {
       payload: {
         request: {
           method: 'get',
-          url: `${POSTS_API_URL}some-post`,
+          url: `${POSTS_API_URL}some-post/`,
           params: {},
         },
       },
