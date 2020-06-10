@@ -36,10 +36,10 @@ export function Paginator(props) {
         breakClassName={ styles['break'] }
         disabledClassName={ styles['disabled'] }
         activeClassName={ styles['active'] }
-        pageLinkClassName={ styles['paginator-container-link'] }
-        previousLinkClassName={ styles['paginator-container-link'] }
-        nextLinkClassName={ styles['paginator-container-link'] }
-        breakLinkClassName={ styles['paginator-container-link'] }
+        pageLinkClassName={ styles['paginator-link'] }
+        previousLinkClassName={ styles['paginator-link'] }
+        nextLinkClassName={ styles['paginator-link'] }
+        breakLinkClassName={ styles['paginator-link'] }
         hrefBuilder={ hrefBuilder }
       />
     </div>
