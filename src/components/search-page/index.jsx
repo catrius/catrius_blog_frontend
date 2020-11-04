@@ -1,51 +1,42 @@
-import React, { Component } from 'react';
-import { arrayOf, func, number, shape, string } from 'prop-types';
+import React, { useEffect } from 'react';
 import cx from 'classnames';
 import { isEmpty } from 'lodash';
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 
 import styles from 'components/search-page/search-page.module.sass';
-import { FAIL, POST_SHAPE } from 'utils/constants';
+import { FAIL } from 'utils/constants';
 import PostList from 'components/common/post-list';
 import MetaPage from 'components/common/meta-page';
 import commonStyles from 'styles/common.module.sass';
+import { postsSelector } from 'selectors/posts-selectors';
+import { getPage, getSearchQuery } from 'selectors/router-selectors';
+import { getFetchState } from 'selectors/fetch-state-selectors';
+import { fetchPosts } from 'actions/fetch-data-actions';
 
 
-export default class SearchPage extends Component {
-  fetch() {
-    const { fetchPosts, searchQuery, page } = this.props;
-    fetchPosts({ q: searchQuery, page });
-  }
+export default function SearchPage() {
+  const dispatch = useDispatch();
+  const posts = useSelector(postsSelector);
+  const location = useLocation();
+  const page = getPage(location);
+  const searchQuery = getSearchQuery(location);
+  const fetchState = useSelector(getFetchState).posts;
+  const foundText = `Search results for "${ searchQuery }"`;
+  const notFoundText = `Nothing found for "${ searchQuery }"`;
 
-  componentDidMount() {
-    this.fetch();
-  }
+  useEffect(() => {
+    dispatch(fetchPosts({ q: searchQuery, page }));
+  }, [dispatch, page, searchQuery]);
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    const { searchQuery, page } = this.props;
-    (searchQuery !== prevProps.searchQuery || prevProps.page !== page) && this.fetch();
-  }
-
-  render() {
-    const { fetchState, posts, searchQuery } = this.props;
-    const foundText = `Search results for "${ searchQuery }"`;
-    const notFoundText = `Nothing found for "${ searchQuery }"`;
-    return !isEmpty(posts) ? (
-      <MetaPage fetchState={ fetchState } title={ foundText } description={ foundText }>
-        <div className={ styles['search-page'] }>
-          <h1 className={ cx(commonStyles['title'], styles['title']) }>{ foundText }</h1>
-          <PostList posts={ posts }/>
-        </div>
-      </MetaPage>
-    ) : (
-      <MetaPage fetchState={ FAIL } title={ notFoundText } description={ notFoundText } errorMessage={ notFoundText }/>
-    );
-  }
+  return !isEmpty(posts) ? (
+    <MetaPage fetchState={ fetchState } title={ foundText } description={ foundText }>
+      <div className={ styles['search-page'] }>
+        <h1 className={ cx(commonStyles['title'], styles['title']) }>{ foundText }</h1>
+        <PostList posts={ posts }/>
+      </div>
+    </MetaPage>
+  ) : (
+    <MetaPage fetchState={ FAIL } title={ notFoundText } description={ notFoundText } errorMessage={ notFoundText }/>
+  );
 }
-
-SearchPage.propTypes = {
-  fetchPosts: func,
-  fetchState: string,
-  page: number,
-  searchQuery: string,
-  posts: arrayOf(shape(POST_SHAPE)),
-};

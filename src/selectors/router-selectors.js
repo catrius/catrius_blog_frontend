@@ -1,5 +1,4 @@
 import { get } from 'lodash';
-import { createSelector } from '@reduxjs/toolkit';
 
 
 export const getSlug = (state, props) => get(props, 'match.params.slug', '');
@@ -11,14 +10,6 @@ export const getCategorySlug = (state, props) => {
   return matched ? matched[1] : null;
 };
 
-const getQueryParams = (state, props) => new URLSearchParams(get(props, 'location.search', ''));
-
-export const getPage = createSelector(
-  getQueryParams,
-  queryParams => parseInt(queryParams.get('page')) || 1,
-);
-
-export const getSearchQuery = createSelector(
-  getQueryParams,
-  queryParams => queryParams.get('q') || '',
-);
+const getQueryParams = location => new URLSearchParams(get(location, 'search', ''));
+export const getPage = location => parseInt(getQueryParams(location).get('page')) || 1;
+export const getSearchQuery = location => getQueryParams(location).get('q') || '';
