@@ -1,11 +1,9 @@
 import { get } from 'lodash';
 
 
-export const getSlug = (state, props) => get(props, 'match.params.slug', '');
-
 // This is for components that are not rendered by router.
-export const getCategorySlug = (state, props) => {
-  const pathname = get(props, 'location.pathname', '');
+export const getCategorySlug = location => {
+  const pathname = get(location, 'pathname', '');
   const matched = pathname.match(/^\/category\/(.+)\/$/);
   return matched ? matched[1] : null;
 };

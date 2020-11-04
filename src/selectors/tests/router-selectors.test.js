@@ -1,18 +1,5 @@
-import { getCategorySlug, getPage, getSearchQuery, getSlug } from 'selectors/router-selectors';
+import { getCategorySlug, getPage, getSearchQuery } from 'selectors/router-selectors';
 
-
-describe('getSlug', () => {
-  it('should return slug', () => {
-    const props = {
-      match: {
-        params: {
-          slug: 'post-1',
-        },
-      },
-    };
-    expect(getSlug({}, props)).toEqual('post-1');
-  });
-});
 
 describe('getCategorySlug', () => {
   it('should return category slug based on pathname', () => {

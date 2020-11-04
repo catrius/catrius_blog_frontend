@@ -16,7 +16,7 @@ export default function CategoryPage() {
   const { slug } = useParams();
   const posts = useSelector(postsSelector);
   const page = useSelector(getPage);
-  const category = useSelector(categorySelector);
+  const category = useSelector(categorySelector(slug));
   const fetchState = useSelector(getFetchState).posts;
 
   useEffect(() => {

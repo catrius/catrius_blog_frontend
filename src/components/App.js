@@ -5,7 +5,6 @@ import { useMediaQuery } from 'react-responsive';
 import cx from 'classnames';
 import { HelmetProvider } from 'react-helmet-async';
 
-import NavbarContainer from 'containers/navbar-container';
 import styles from 'components/App.module.sass';
 import Footer from 'components/footer';
 import Router from 'components/router';
@@ -13,6 +12,7 @@ import store, { history } from 'store';
 import Header from 'components/header';
 import { DeviceContext, HelmetContext } from 'contexts';
 import { DESKTOP, MOBILE, RESPONSIVE_CLASS_NAMES, TABLET, WIDTHS } from 'utils/constants';
+import NavBar from 'components/navbar';
 
 
 export default function App() {
@@ -28,7 +28,7 @@ export default function App() {
           <div className={ styles['App'] }>
             <DeviceContext.Provider value={ device }>
               <Header/>
-              <NavbarContainer/>
+              <NavBar/>
               <div className={ cx(styles['content'], styles[RESPONSIVE_CLASS_NAMES[device]]) }>
                 <Router/>
               </div>
