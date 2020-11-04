@@ -2,10 +2,10 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import { CATEGORY_ROUTER, POST_ROUTER, SEARCH_ROUTER } from 'utils/constants';
-import CategoryPageContainer from 'containers/category-page-container';
 import SearchPageContainer from 'containers/search-page-container';
 import Homepage from 'components/homepage';
 import PostPage from 'components/post-page';
+import CategoryPage from 'components/category-page';
 
 
 function Router() {
@@ -18,7 +18,7 @@ function Router() {
         <PostPage/>
       </Route>
       <Route path={ CATEGORY_ROUTER }>
-        <CategoryPageContainer/>
+        <CategoryPage/>
       </Route>
       <Route path={ SEARCH_ROUTER }>
         <SearchPageContainer/>
