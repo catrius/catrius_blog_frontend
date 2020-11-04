@@ -1,39 +1,27 @@
-import React, { Component } from 'react';
-import { arrayOf, func, number, shape, string } from 'prop-types';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { POST_SHAPE } from 'utils/constants';
 import PostList from 'components/common/post-list';
 import MetaPage from 'components/common/meta-page';
+import { postsSelector } from 'selectors/posts-selectors';
+import { getPage } from 'selectors/router-selectors';
+import { getFetchState } from 'selectors/fetch-state-selectors';
+import { fetchPosts } from 'actions/fetch-data-actions';
 
 
-export default class Homepage extends Component {
-  fetch() {
-    const { fetchPosts, page } = this.props;
-    fetchPosts({ page });
-  }
+export default function Homepage() {
+  const dispatch = useDispatch();
+  const posts = useSelector(postsSelector);
+  const page = useSelector(getPage);
+  const fetchState = useSelector(getFetchState).posts;
 
-  componentDidMount() {
-    this.fetch();
-  }
-
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    const { page } = this.props;
-    prevProps.page !== page && this.fetch();
-  }
-
-  render() {
-    const { fetchState, posts } = this.props;
-    return (
-      <MetaPage fetchState={ fetchState }>
-        <PostList posts={ posts } />
-      </MetaPage>
-    );
-  }
+  useEffect(() => {
+    dispatch(fetchPosts({ page }));
+  }, [dispatch, page]);
+  
+  return (
+    <MetaPage fetchState={ fetchState }>
+      <PostList posts={ posts } />
+    </MetaPage>
+  );
 }
-
-Homepage.propTypes = {
-  fetchPosts: func,
-  fetchState: string,
-  page: number,
-  posts: arrayOf(shape(POST_SHAPE)),
-};
