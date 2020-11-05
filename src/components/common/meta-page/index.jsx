@@ -1,13 +1,12 @@
 import React, { Fragment } from 'react';
 import { node, string } from 'prop-types';
 import { Helmet } from 'react-helmet-async';
-import DotLoader from 'react-spinners/DotLoader';
 import cx from 'classnames';
 
 import styles from './meta-page.module.sass';
 
 import { buildTitle } from 'utils/web-meta';
-import { FAIL, REQUEST, WEB_DESCRIPTION } from 'utils/constants';
+import { FAIL, WEB_DESCRIPTION } from 'utils/constants';
 import commonStyles from 'styles/common.module.sass';
 
 
@@ -27,13 +26,6 @@ export default function MetaPage(props) {
               <h1 className={ commonStyles['title'] }>{ errorMessage }</h1>
             </div>
           )
-        ) : fetchState === REQUEST ? (
-          <div className={ cx(styles['empty-page'], styles['center']) }>
-            <DotLoader
-              color='black'
-              loading={ true }
-            />
-          </div>
         ) : children
       }
     </Fragment>
