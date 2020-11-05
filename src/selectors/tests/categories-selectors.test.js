@@ -49,14 +49,7 @@ describe('fetchedCategoriesSelector', () => {
 describe('categorySelector', () => {
   it('should return category based on slug', () => {
     each(rawCategories, rawCategory => {
-      const props = {
-        match: {
-          params: {
-            slug: rawCategory.slug,
-          },
-        },
-      };
-      expect(categorySelector(state, props)).toEqual(transformCategory(rawCategory));
+      expect(categorySelector(rawCategory.slug)(state, {})).toEqual(transformCategory(rawCategory));
     });
   });
 });

@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 
 import { DEVICES, RESPONSIVE_CLASS_NAMES } from 'utils/constants';
 import { mockDeviceContext } from 'test-utils';
-import PaginatorContainer, { Paginator } from 'components/common/paginator';
+import Paginator from 'components/common/paginator';
 
 
 const mockStore = configureStore();
@@ -29,14 +29,12 @@ describe('PaginatorContainer', () => {
     const wrapper = mount(
       <MemoryRouter initialEntries={ [`?page=${ page }`] }>
         <Provider store={ store }>
-          <PaginatorContainer/>,
+          <Paginator/>,
         </Provider>
       </MemoryRouter>,
     );
 
     const paginatorWrapper = wrapper.find(Paginator);
-    expect(paginatorWrapper.prop('pageCount')).toEqual(pageCount);
-    expect(paginatorWrapper.prop('page')).toEqual(page);
 
     const paginator = paginatorWrapper.find('.paginator-wrapper');
     expect(paginator.prop('className')).toEqual(`paginator-wrapper ${ RESPONSIVE_CLASS_NAMES[device] }`);

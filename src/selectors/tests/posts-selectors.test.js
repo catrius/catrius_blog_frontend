@@ -36,14 +36,7 @@ describe('PostsSelector', () => {
 describe('postSelector', () => {
   it('should return post based on slug', () => {
     each(rawPosts, rawPost => {
-      const props = {
-        match: {
-          params: {
-            slug: rawPost.slug,
-          },
-        },
-      };
-      expect(postSelector(state, props)).toEqual(transformPost(rawPost));
+      expect(postSelector(rawPost.slug)(state, {})).toEqual(transformPost(rawPost));
     });
   });
 });
@@ -51,25 +44,11 @@ describe('postSelector', () => {
 describe('fetchedPostSelector', () => {
   it('should return true if post has been fetched', () => {
     each(rawPosts, rawPost => {
-      const props = {
-        match: {
-          params: {
-            slug: rawPost.slug,
-          },
-        },
-      };
-      expect(fetchedPostSelector(state, props)).toBe(true);
+      expect(fetchedPostSelector(rawPost.slug)(state, {})).toBe(true);
     });
   });
 
   it('should return false if post has not been fetched', () => {
-    const props = {
-      match: {
-        params: {
-          slug: 'not-fetched-post',
-        },
-      },
-    };
-    expect(fetchedPostSelector(state, props)).toBe(false);
+    expect(fetchedPostSelector('not-fetched-post')(state, {})).toBe(false);
   });
 });
