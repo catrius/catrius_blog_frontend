@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 import PostList from 'components/common/post-list';
 import MetaPage from 'components/common/meta-page';
@@ -15,7 +15,8 @@ export default function CategoryPage() {
   const dispatch = useDispatch();
   const { slug } = useParams();
   const posts = useSelector(postsSelector);
-  const page = useSelector(getPage);
+  const location = useLocation();
+  const page = getPage(location);
   const category = useSelector(categorySelector(slug));
   const fetchState = useSelector(getFetchState).posts;
 

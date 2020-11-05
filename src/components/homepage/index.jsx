@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 
 import PostList from 'components/common/post-list';
 import MetaPage from 'components/common/meta-page';
@@ -12,7 +13,8 @@ import { fetchPosts } from 'actions/fetch-data-actions';
 export default function Homepage() {
   const dispatch = useDispatch();
   const posts = useSelector(postsSelector);
-  const page = useSelector(getPage);
+  const location = useLocation();
+  const page = getPage(location);
   const fetchState = useSelector(getFetchState).posts;
 
   useEffect(() => {

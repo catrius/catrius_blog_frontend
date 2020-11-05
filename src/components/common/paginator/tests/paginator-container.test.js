@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 
 import { DEVICES, RESPONSIVE_CLASS_NAMES } from 'utils/constants';
 import { mockDeviceContext } from 'test-utils';
-import PaginatorContainer, { Paginator } from 'components/common/paginator-container';
+import PaginatorContainer, { Paginator } from 'components/common/paginator';
 
 
 const mockStore = configureStore();
