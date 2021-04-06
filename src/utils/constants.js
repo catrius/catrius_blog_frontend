@@ -29,6 +29,8 @@ export const FAIL = 'FAIL';
 export const FETCH_POSTS = 'FETCH_POSTS';
 export const FETCH_POST = 'FETCH_POST';
 export const FETCH_CATEGORIES = 'FETCH_CATEGORIES';
+export const FETCH_PAGES = 'FETCH_PAGES';
+export const FETCH_PAGE = 'FETCH_PAGE';
 
 // Other actions
 export const RESET_FETCH_STATE = 'RESET_FETCH_STATE';
@@ -83,3 +85,6 @@ export const WIDTHS = {
   [TABLET]: 725, // = 330px / 0.475 + 15px * 2
   [MOBILE]: 360, // = 330px / 1 + 15px * 2
 };
+
+// Page
+export const PAGE_CATEGORY = 'page';

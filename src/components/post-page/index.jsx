@@ -58,7 +58,7 @@ export default function PostPage() {
             />
           ) : null
         }
-        <ReactMarkdown className={ styles['content'] } source={ content }/>
+        <ReactMarkdown className={ styles['content'] } source={ content } />
       </div>
     </MetaPage>
   );
