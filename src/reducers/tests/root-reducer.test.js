@@ -24,6 +24,7 @@ describe('rootReducer', () => {
     expect(rootReducer(history)({}, action)).toEqual({
       router,
       posts: [],
+      pages: [],
       categories: [],
       paginator: {
         pageCount: 0,

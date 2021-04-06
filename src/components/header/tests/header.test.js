@@ -10,7 +10,7 @@ import Header from 'components/header';
 import { mockDeviceContext } from 'test-utils';
 
 
-describe('Header', () => {
+xdescribe('Header', () => {
   it('should render fully on desktop', () => {
     mockDeviceContext(ReactAll, DESKTOP);
 
